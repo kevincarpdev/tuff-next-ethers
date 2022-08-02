@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Link from 'next/link'
 
 export default function Navbar() {
 	const [haveMetamask, sethaveMetamask] = useState(true);
@@ -56,7 +57,10 @@ export default function Navbar() {
 		<>
 				<nav className="container">
         <div>
-          <h3>Tuff Guys</h3>
+          <Link href="/">
+            <h3>Tuff Guys</h3>
+          </Link>
+          
         </div>
         <div className="d-flex" style={{ marginLeft: "auto" }}>
           <div>
