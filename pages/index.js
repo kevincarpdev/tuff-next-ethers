@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import { signMessage } from "../utils/sign";
 import Head from 'next/head';
 import Navbar from "../component/common/Navbar/Navbar";
@@ -11,7 +10,6 @@ import ExtraImagesMarquee from '../component/common/ExtraImagesMarquee/ExtraImag
 
 const Index = () => {
   
-
   return (
     <>
       <Head>

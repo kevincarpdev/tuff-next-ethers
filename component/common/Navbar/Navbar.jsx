@@ -55,7 +55,7 @@ export default function Navbar() {
   }, []);
 	return (
 		<>
-				<nav className="d-flex">
+				<nav className="container">
         <div>
           <h3>MENU</h3>
         </div>

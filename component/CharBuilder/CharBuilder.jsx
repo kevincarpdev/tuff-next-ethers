@@ -21,7 +21,7 @@ import { FaQuestion } from "react-icons/fa";
 import {motion, useMotionValue, useTransform } from "framer-motion";
 import 'swiper/css';
 
-export default function CharBuilder() {
+export default function CharBuilder({mintCharacter}) {
 	// const { Moralis } = useMoralis();
 	// const { user, setUserData, loading } = props;
 	// const [NFTs, setNFTs] = useState([]);
@@ -114,96 +114,88 @@ export default function CharBuilder() {
 						<div className={s.fuseRow}>
 							<div className={s.fuseStage}>
 								<div className={s.stepPanel}>
-									<div className={s.frame}>
-										<div className={s.bgImage}>
-											<Image
-												src={Background}
-												alt="Background"
-												quality="85"
-												layout="intrinsic"
-												placeholder="blur"
-												loading="lazy"
-											/>
+										<div className={s.fuseImages}>
+											<div className={cn(s.fuseImg, s.bgImage)}>
+												<Image
+													src={Background}
+													alt="Background"
+													quality="85"
+													placeholder="blur"
+													loading="lazy"
+												/>
+											</div>
+											<div className={cn(s.fuseImg, s.head)}>
+												<Image
+													src={Head}
+													alt="Head"
+													quality="85"
+													placeholder="blur"
+													loading="lazy"
+												/>
+											</div>
+											<div className={cn(s.fuseImg, s.skin)}>
+												<Image
+													src={Skin}
+													alt="Skin"
+													quality="85"
+													placeholder="blur"
+													loading="lazy"
+												/>
+											</div>
+											<div className={cn(s.fuseImg, s.hair)}>
+												<Image
+													src={Hair}
+													alt="Hair"
+													quality="85"
+													placeholder="blur"
+													loading="lazy"
+												/>
+											</div>
+											<div className={cn(s.fuseImg, s.tears)}>
+												<Image
+													src={Tears}
+													alt="Tears"
+													quality="85"
+													placeholder="blur"
+													loading="lazy"
+												/>
+											</div>
+											<div className={cn(s.fuseImg, s.headwear)}>
+												<Image
+													src={Headwear}
+													alt="Headwear"
+													quality="85"
+													placeholder="blur"
+													loading="lazy"
+												/>
+											</div>
+											<div className={cn(s.fuseImg, s.mouthwear)}>
+												<Image
+													src={Mouthwear}
+													alt="Mouthwear"
+													quality="85"	
+													placeholder="blur"
+													loading="lazy"
+												/>
+											</div>
+											<div className={cn(s.fuseImg, s.clothes)}>
+												<Image
+													src={Clothes}
+													alt="Clothes"
+													quality="85"
+													placeholder="blur"
+													loading="lazy"
+												/>
+											</div>
 										</div>
-										<div className={s.head}>
-											<Image
-												src={Head}
-												alt="Head"
-												quality="85"
-												layout="intrinsic"
-												placeholder="blur"
-												loading="lazy"
-											/>
-										</div>
-										<div className={s.skin}>
-											<Image
-												src={Skin}
-												alt="Skin"
-												quality="85"
-												layout="intrinsic"
-												placeholder="blur"
-												loading="lazy"
-											/>
-										</div>
-										<div className={s.hair}>
-											<Image
-												src={Hair}
-												alt="Hair"
-												quality="85"
-												layout="intrinsic"
-												placeholder="blur"
-												loading="lazy"
-											/>
-										</div>
-										<div className={s.tears}>
-											<Image
-												src={Tears}
-												alt="Tears"
-												quality="85"
-												layout="intrinsic"
-												placeholder="blur"
-												loading="lazy"
-											/>
-										</div>
-										<div className={s.headwear}>
-											<Image
-												src={Headwear}
-												alt="Headwear"
-												quality="85"
-												layout="intrinsic"
-												placeholder="blur"
-												loading="lazy"
-											/>
-										</div>
-										<div className={s.mouthwear}>
-											<Image
-												src={Mouthwear}
-												alt="Mouthwear"
-												quality="85"
-												layout="intrinsic"
-												placeholder="blur"
-												loading="lazy"
-											/>
-										</div>
-										<div className={s.clothes}>
-											<Image
-												src={Clothes}
-												alt="Clothes"
-												quality="85"
-												layout="intrinsic"
-												placeholder="blur"
-												loading="lazy"
-											/>
-										</div>
-										{Object.keys(dressupState).map((item) => (
+										
+										{/* {Object.keys(dressupState).map((item) => (
 											<div
 												id={item}
 												className={item + (dressupState[item].current + 1)}
 												key={item}
 											></div>
-										))}
-									</div>
-								</div>
+										))} */}
 								<div className={s.controls}>
 									<h3>Choose Your Traits</h3>
 									<div className={s.traitSliders}>
@@ -212,28 +204,16 @@ export default function CharBuilder() {
 												<h4>{item}</h4>
 												<div>
 														<div>
-															<h5>{item} #1</h5>
-														</div>
-														<div>
-															<h5>{item} #2</h5>
-														</div>
-														<div>
-															<h5>{item} #3</h5>
+															<h5>{item}s</h5>
 														</div>
 												</div>
 											</div>
 										))}
 									</div>
 								</div>
+								</div>
 							</div>
 						</div>
-						<input
-							className="button"
-							type="button"
-							value="Mint"
-							id="randomize"
-							onClick={() => randomize()}
-						/>
 					</div>
 				</div>
 			</section>
