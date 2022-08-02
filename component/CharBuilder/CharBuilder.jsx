@@ -69,9 +69,25 @@ export default function CharBuilder({mintCharacter}) {
 				<div className="container">
 					<div className={s.fuseWindow}>
 						<div className={s.nftPanel}>
-							<h3 className={s.nftHeader}>My Tuff Guys</h3>
+							<h2 className={s.nftRowHeader}>My Tuff Guys</h2>
 							<div >
-								<Swiper className={s.nftRow} spaceBetween={5} slidesPerView={4}>
+								<Swiper
+								breakpoints={{
+									640: {
+										width: 640,
+										slidesPerView: 1,
+									},
+									768: {
+										width: 768,
+										slidesPerView: 2,
+									},
+									1024: {
+										width: 1024,
+										slidesPerView: 4,
+									},
+								}}
+								className={s.nftRow}
+								>
 									<SwiperSlide key="NFT1" >
 										<motion.a
 											whileHover={{ scale: 1.2 }}
@@ -119,6 +135,7 @@ export default function CharBuilder({mintCharacter}) {
 												<Image
 													src={Background}
 													alt="Background"
+													layout={`fill`}
 													quality="85"
 													placeholder="blur"
 													loading="lazy"
@@ -128,6 +145,7 @@ export default function CharBuilder({mintCharacter}) {
 												<Image
 													src={Head}
 													alt="Head"
+													layout={`fill`}
 													quality="85"
 													placeholder="blur"
 													loading="lazy"
@@ -137,6 +155,7 @@ export default function CharBuilder({mintCharacter}) {
 												<Image
 													src={Skin}
 													alt="Skin"
+													layout={`fill`}
 													quality="85"
 													placeholder="blur"
 													loading="lazy"
@@ -146,6 +165,7 @@ export default function CharBuilder({mintCharacter}) {
 												<Image
 													src={Hair}
 													alt="Hair"
+													layout={`fill`}
 													quality="85"
 													placeholder="blur"
 													loading="lazy"
@@ -155,6 +175,7 @@ export default function CharBuilder({mintCharacter}) {
 												<Image
 													src={Tears}
 													alt="Tears"
+													layout={`fill`}
 													quality="85"
 													placeholder="blur"
 													loading="lazy"
@@ -164,6 +185,7 @@ export default function CharBuilder({mintCharacter}) {
 												<Image
 													src={Headwear}
 													alt="Headwear"
+													layout={`fill`}
 													quality="85"
 													placeholder="blur"
 													loading="lazy"
@@ -173,6 +195,7 @@ export default function CharBuilder({mintCharacter}) {
 												<Image
 													src={Mouthwear}
 													alt="Mouthwear"
+													layout={`fill`}
 													quality="85"	
 													placeholder="blur"
 													loading="lazy"
@@ -182,6 +205,7 @@ export default function CharBuilder({mintCharacter}) {
 												<Image
 													src={Clothes}
 													alt="Clothes"
+													layout={`fill`}
 													quality="85"
 													placeholder="blur"
 													loading="lazy"
@@ -197,7 +221,6 @@ export default function CharBuilder({mintCharacter}) {
 											></div>
 										))} */}
 								<div className={s.controls}>
-									<h3>Choose Your Traits</h3>
 									<div className={s.traitSliders}>
 										{Object.keys(dressupState).map((item) => (
 											<div className={s.traitItem} key={item}>

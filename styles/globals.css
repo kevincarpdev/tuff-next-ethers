@@ -25,12 +25,6 @@ a {
   color: #739CFB;
 }
 
-.container {
-  justify-content: center;
-  text-align: center;
-  /* height: 95vh; */
-}
-
 .d-flex {
   display: flex;
   align-items: center;
@@ -88,6 +82,10 @@ a {
   background: #745EDA;
   color: #F2F2F2;
   border: 1px solid #FFFFFF;
+}
+.swiper-wrapper {
+	display: flex;
+	justify-content: center;
 }
 
 /* media query for mobile devices */
@@ -184,8 +182,7 @@ h5 {
 }
 
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
+  @apply md:max-w-screen-xl mx-auto px-2;
 }
 
 .menuBar {
@@ -299,9 +296,6 @@ nav {
   width: 100%;
   align-items: center;
   justify-content: space-between;
-}
-.container {
-  padding: 0 2rem;
 }
 
 .main {

@@ -217,7 +217,6 @@ export default function Fuse() {
       </Head>
       <Navbar />
       <main>
-        <div className='flex flex-col items-center pt-32 bg-[#0B132B] text-[#d3d3d3] min-h-screen'>
           
           {currentAccount === '' ? (
             <button
@@ -274,7 +273,6 @@ export default function Fuse() {
               />
             </div>
           )}
-        </div>
         
         {nfts.length != 0 && (
           <div className="sm: grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 p-3">
