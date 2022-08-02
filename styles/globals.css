@@ -417,9 +417,6 @@ nav {
   justify-content: center;
   min-height: 90vh;
 }
-.marquee-container {
-  bottom: -10px;
-}
 
 
 @media (max-width: 600px) {

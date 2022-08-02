@@ -19,13 +19,12 @@ const Index = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
 
-      <Navbar />
-
+        <Navbar />
         <main>
-        <Hero signMessageFunction={signMessage} />
-        <Utility />
-        <Rarity />
-        <Team />
+          <Hero signMessageFunction={signMessage} />
+          <Utility />
+          <Rarity />
+          <Team />
         </main>
         <footer>
           <Footer />
