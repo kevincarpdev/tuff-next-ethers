@@ -68,6 +68,8 @@
   display: inline-flex;
 }
 .socialNav li a {
+  display: flex;
+  align-items: center;
   padding: 50%;
   border-radius: 50%;
   background-color: #fff;
