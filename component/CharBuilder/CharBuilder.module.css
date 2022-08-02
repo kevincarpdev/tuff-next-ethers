@@ -6,7 +6,7 @@
 .stepPanel {
 	@apply relative lg:flex justify-between flex-col lg:flex-row;
 	border-radius: 40px;
-	padding: 0 2em 0 0;
+	padding: 4em 2em 0 0;
 	text-align: center;
 	height: auto;
 	margin: 0 auto;
@@ -26,9 +26,7 @@
 
 .fuseWindow {
 	@apply mt-24;
-	background-color: #4b5563;
 	padding: 0;
-	border: 1px solid #374151;
 	border-radius: 30px 30px 0 0;
 }
 
@@ -48,7 +46,7 @@
 }
 
 .nftPanel {
-	background-color: rgba(0, 0, 0, 0.5);
+	background-color: rgba(0, 0, 0, 0.8);
 	padding: 2em 0;
 	border-radius: 30px 30px 0 0;
 }
@@ -80,7 +78,6 @@
 }
 .traitItem {
 	margin: 5px 0 1em;
-	border-bottom: 1px solid #000;
 	padding-bottom: 1em;
 }
 .nftHeader {
@@ -109,6 +106,40 @@
 .swiper-container {
   width: 480px;
 }
+.traitBrowser {
+	@apply relative flex place-items-center justify-center px-12;
+	color: #383838;
+}
+
+.arrow {
+  border: solid #383838;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 5px;
+}
+.arrow.leftArrow {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+.arrow.rightArrow {
+  @apply -rotate-45;
+}
+.traitAction {
+	@apply absolute opacity-100 rounded-full hover:cursor-pointer hover:opacity-60;
+	background-color: rgba(185,79,79,.6901960784313725);
+	padding: 5px 9px 5px 12px;
+}
+.left {
+	@apply left-0;
+}
+.right {
+	@apply right-0;
+	padding: 5px 12px 5px 9px;
+}
+.traitHeader {
+	@apply text-xl mb-2;
+}
+
 
 @media screen and (min-width: 640px) {
   .swiper-container {

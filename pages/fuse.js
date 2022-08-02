@@ -210,8 +210,7 @@ export default function Fuse() {
               Connect Wallet
             </button>
         )}
-        
-          {nfts.length == 0 && <NoMints />}
+
           {loadingState === 0 ? (
             miningStatus === 0 ? (
               txError === null ? (

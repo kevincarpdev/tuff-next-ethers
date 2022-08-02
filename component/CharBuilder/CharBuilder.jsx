@@ -224,11 +224,17 @@ export default function CharBuilder({mintCharacter}) {
 									<div className={s.traitSliders}>
 										{Object.keys(dressupState).map((item) => (
 											<div className={s.traitItem} key={item}>
-												<h4>{item}</h4>
+												<h4 className={s.traitHeader}>{item}</h4>
 												<div>
-														<div>
-															<h5>{item}s</h5>
-														</div>
+													<div className={s.traitBrowser}>
+														<a className={cn(s.traitAction, s.left)}>
+															<i className={cn(s.arrow, s.leftArrow)}></i>
+														</a>
+														<h5>{item}</h5>
+														<a className={cn(s.traitAction, s.right)}>
+															<i className={cn(s.arrow, s.rightArrow)}></i>
+														</a>
+													</div>
 												</div>
 											</div>
 										))}
