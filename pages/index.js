@@ -98,24 +98,14 @@ const Index = () => {
       {/* Navbar end */}
 
         <main>
-          {!haveMetamask ? (
-            <Metamask />
-          ) : client.isConnected ? (
-            <>
-              <Hero signMessageFunction={signMessage} />
-              <Utility />
-              <Rarity />
-              <Team />
-            </>
-          ) : (
-            <>
-              <h1>Please connect to MetaMask.</h1>
-            </>
-          )} 
+        <Hero signMessageFunction={signMessage} />
+        <Utility />
+        <Rarity />
+        <Team />
         </main>
-      <footer>
-        <Footer />
-      </footer>
+        <footer>
+          <Footer />
+        </footer>
       <ExtraImagesMarquee />
     </>
   );
