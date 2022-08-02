@@ -4,6 +4,7 @@ import NFT from '../utils/TuffGuysNFT.json'
 import { useContext, useState, useEffect } from 'react'
 import axios from 'axios'
 import Head from 'next/head'
+import Navbar from "../component/common/Navbar/Navbar";
 
 // store
 import Web3Context from '../store/web3Context'
@@ -214,6 +215,7 @@ export default function Fuse() {
       <Head>
         <title>Tuff Guys | Fuse</title>
       </Head>
+      <Navbar />
       <main>
         <div className='flex flex-col items-center pt-32 bg-[#0B132B] text-[#d3d3d3] min-h-screen'>
           <div className='trasition hover:rotate-180 hover:scale-105 transition duration-500 ease-in-out'>
@@ -227,9 +229,6 @@ export default function Fuse() {
               <path d='M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5 8 5.961 14.154 3.5 8.186 1.113zM15 4.239l-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923l6.5 2.6zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464L7.443.184z' />
             </svg>
           </div>
-          <h2 className='text-3xl font-bold mb-20 mt-12'>
-            Mint your Tuff Guy!
-          </h2>
           {currentAccount === '' ? (
             <button
               className='text-2xl font-bold py-3 px-12 bg-black shadow-lg shadow-[#6FFFE9] rounded-lg mb-10 hover:scale-105 transition duration-500 ease-in-out'
@@ -238,12 +237,16 @@ export default function Fuse() {
               Connect Wallet
             </button>
           ) : correctNetwork ? (
-            <button
-              className='text-2xl font-bold py-3 px-12 bg-black shadow-lg shadow-[#6FFFE9] rounded-lg mb-10 hover:scale-105 transition duration-500 ease-in-out'
-              onClick={mintCharacter}
-            >
-              Mint Character
-            </button>
+            <>
+            <CharBuilder />
+                <button
+                  className='text-2xl font-bold py-3 px-12 bg-black shadow-lg shadow-[#6FFFE9] rounded-lg mb-10 hover:scale-105 transition duration-500 ease-in-out'
+                  onClick={mintCharacter}
+                >
+                  Mint Character
+                </button>
+            </>
+            
           ) : (
             <div className='flex flex-col justify-center items-center mb-20 font-bold text-2xl gap-y-3'>
               <div>----------------------------------------</div>
