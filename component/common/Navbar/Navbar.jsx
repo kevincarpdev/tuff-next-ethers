@@ -57,7 +57,7 @@ export default function Navbar() {
 		<>
 				<nav className="container">
         <div>
-          <h3>MENU</h3>
+          <h3>Tuff Guys</h3>
         </div>
         <div className="d-flex" style={{ marginLeft: "auto" }}>
           <div>

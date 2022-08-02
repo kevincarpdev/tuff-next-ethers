@@ -217,7 +217,6 @@ export default function Fuse() {
       </Head>
       <Navbar />
       <main>
-          
           {currentAccount === '' ? (
             <button
               className='text-2xl font-bold py-3 px-12 bg-black shadow-lg shadow-[#6FFFE9] rounded-lg mb-10 hover:scale-105 transition duration-500 ease-in-out'
