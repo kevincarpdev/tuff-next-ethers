@@ -73,7 +73,7 @@ export default function Navbar() {
             </button>
           </div>
           <div>
-            <Link href="https://twitter.com/tuffguysnft">
+            <Link href="https://twitter.com/tuffguysnft" target="_blank" passHref>
               <button className="btn tw-btn">TG</button>
             </Link>
           </div>
