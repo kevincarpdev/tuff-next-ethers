@@ -1,8 +1,14 @@
 import { useState, useEffect } from "react";
 import { signMessage } from "../utils/sign";
-
+import Head from 'next/head';
 import Link from "next/link";
 import Metamask from "../component/metamask";
+import Hero from "../component/Hero/Hero";
+import Footer from "../component/common/Footer/Footer";
+import Utility from "../component/Utility/Utility";
+import Rarity from "../component/Rarity/Rarity";
+import Team from "../component/Team/Team";
+import ExtraImagesMarquee from '../component/common/ExtraImagesMarquee/ExtraImagesMarquee';
 
 const Index = () => {
   const [haveMetamask, sethaveMetamask] = useState(true);
@@ -59,14 +65,19 @@ const Index = () => {
 
   return (
     <>
+      <Head>
+        <title>Tuff Guys NFT</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </Head>
+
       {/* Navbar */}
-      <nav className="fren-nav d-flex">
+      <nav className="d-flex">
         <div>
-          <h3>MENU_</h3>
+          <h3>MENU</h3>
         </div>
         <div className="d-flex" style={{ marginLeft: "auto" }}>
           <div>
-            <button className="btn connect-btn" onClick={connectWeb3}>
+            <button className="button" onClick={connectWeb3}>
               {client.isConnected ? (
                 <>
                   {client.address.slice(0, 4)}...
@@ -78,51 +89,34 @@ const Index = () => {
             </button>
           </div>
           <div>
-            <Link href="https://twitter.com/asaolu_elijah">
-              <button className="btn tw-btn">TW</button>
+            <Link href="https://twitter.com/tuffguysnft">
+              <button className="btn tw-btn">TG</button>
             </Link>
           </div>
         </div>
       </nav>
       {/* Navbar end */}
 
-      <section className="container d-flex">
         <main>
-          <h1 className="main-title">Awesome DApp 🚀</h1>
-
-          <p className="main-desc">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem
-            suscipit perferendis tempore <br /> eveniet id pariatur error
-          </p>
-
-          {/* ---- */}
-          <p>
-            {!haveMetamask ? (
-              <Metamask />
-            ) : client.isConnected ? (
-              <>
-                <br />
-                <h2>You're connected ✅</h2>
-                <button
-                  onClick={signMessage}
-                  type="button"
-                  className="btn sign-btn"
-                >
-                  Sign Message
-                </button>
-              </>
-            ) : (
-              <>
-                <br />
-                <button className="btn connect-btn" onClick={connectWeb3}>
-                  Connect Wallet
-                </button>
-              </>
-            )}
-          </p>
-          {/* ---- */}
+          {!haveMetamask ? (
+            <Metamask />
+          ) : client.isConnected ? (
+            <>
+              <Hero signMessageFunction={signMessage} />
+              <Utility />
+              <Rarity />
+              <Team />
+            </>
+          ) : (
+            <>
+              <h1>Please connect to MetaMask.</h1>
+            </>
+          )} 
         </main>
-      </section>
+      <footer>
+        <Footer />
+      </footer>
+      <ExtraImagesMarquee />
     </>
   );
 };
