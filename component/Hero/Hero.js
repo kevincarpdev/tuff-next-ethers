@@ -147,13 +147,15 @@ export default function Hero({ signMessageFunction }) {
 								<div className={s.heroExtraText}>
 									<h4>10,000 tough guys</h4>
 									<h4>enter the meta verse</h4>
+{/* 
 									<button
 										onClick={signMessageFunction}
 										type="button"
 										className="button"
 									>
 										Mint
-									</button>
+									</button> */}
+
 								</div>
 							</div>
 							<div className={s.imageContainer}>
