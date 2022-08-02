@@ -30,79 +30,59 @@ export default function Fuse() {
   const [txError, setTxError] = useState(null)
   const [currentAccount, setCurrentAccount] = useState('')
   const [correctNetwork, setCorrectNetwork] = useState(false)
+  const [haveMetamask, sethaveMetamask] = useState(true);
 
-  // Checks if wallet is connected
-  const checkIfWalletIsConnected = async () => {
-    const { ethereum } = window
+  const [client, setclient] = useState({
+    isConnected: false,
+  });
+
+  const checkConnection = async () => {
+    const { ethereum } = window;
     if (ethereum) {
-      console.log('Got the ethereum obejct: ', ethereum)
+      sethaveMetamask(true);
+      const accounts = await ethereum.request({ method: "eth_accounts" });
+      if (accounts.length > 0) {
+        setclient({
+          isConnected: true,
+          address: accounts[0],
+        });
+      } else {
+        setclient({
+          isConnected: false,
+        });
+      }
     } else {
-      console.log('No Wallet found. Connect Wallet')
+      sethaveMetamask(false);
     }
+  };
 
-    const accounts = await ethereum.request({ method: 'eth_accounts' })
-
-    if (accounts.length !== 0) {
-      console.log('Found authorized Account: ', accounts[0])
-      setCurrentAccount(accounts[0])
-    } else {
-      console.log('No authorized account found')
-    }
-  }
-
-  // Calls Metamask to connect wallet on clicking Connect Wallet button
-  const connectWallet = async () => {
+  const connectWeb3 = async () => {
     try {
-      const { ethereum } = window
+      const { ethereum } = window;
 
       if (!ethereum) {
-        console.log('Metamask not detected')
-        return
-      }
-      let chainId = await ethereum.request({ method: 'eth_chainId' })
-      console.log('Connected to chain:' + chainId)
-
-      const rinkebyChainId = '0x4'
-
-      const devChainId = 1337
-      const localhostChainId = `0x${Number(devChainId).toString(16)}`
-
-      if (chainId !== rinkebyChainId && chainId !== localhostChainId) {
-        alert('You are not connected to the Rinkeby Testnet!')
-        return
+        console.log("Metamask not detected");
+        return;
       }
 
-      const accounts = await ethereum.request({ method: 'eth_requestAccounts' })
+      const accounts = await ethereum.request({
+        method: "eth_requestAccounts",
+      });
 
-      console.log('Found account', accounts[0])
-      setCurrentAccount(accounts[0])
+      setclient({
+        isConnected: true,
+        address: accounts[0],
+      });
     } catch (error) {
-      console.log('Error connecting to metamask', error)
+      console.log("Error connecting to metamask", error);
     }
-  }
-
-  // Checks if wallet is connected to the correct network
-  const checkCorrectNetwork = async () => {
-    const { ethereum } = window
-    let chainId = await ethereum.request({ method: 'eth_chainId' })
-    console.log('Connected to chain:' + chainId)
-
-    const rinkebyChainId = '0x4'
-
-    const devChainId = 1337
-    const localhostChainId = `0x${Number(devChainId).toString(16)}`
-
-    if (chainId !== rinkebyChainId && chainId !== localhostChainId) {
-      setCorrectNetwork(false)
-    } else {
-      setCorrectNetwork(true)
-    }
-  }
+  };
 
   useEffect(() => {
-    checkIfWalletIsConnected()
-    checkCorrectNetwork()
-  }, [])
+    checkConnection();
+  }, []);
+
+
 
   // Creates transaction to mint NFT on clicking Mint Character button
   const mintCharacter = async () => {
@@ -217,27 +197,20 @@ export default function Fuse() {
       </Head>
       <Navbar />
       <main>
-          {currentAccount === '' ? (
+        {client.isConnected ? (
+          <>
+            <CharBuilder />
+            
+          </>
+        ) : (
             <button
               className='text-2xl font-bold py-3 px-12 bg-black shadow-lg shadow-[#6FFFE9] rounded-lg mb-10 hover:scale-105 transition duration-500 ease-in-out'
-              onClick={connectWallet}
+              onClick={connectWeb3}
             >
               Connect Wallet
             </button>
-          ) : correctNetwork ? (
-            <>
-            <CharBuilder />
-            </>
-            
-          ) : (
-            <div className='flex flex-col justify-center items-center mb-20 font-bold text-2xl gap-y-3'>
-              <div>----------------------------------------</div>
-              <div>Please connect to the Rinkeby Testnet</div>
-              <div>and reload the page</div>
-              <div>----------------------------------------</div>
-            </div>
-          )}
-
+        )}
+        
           {nfts.length == 0 && <NoMints />}
           {loadingState === 0 ? (
             miningStatus === 0 ? (

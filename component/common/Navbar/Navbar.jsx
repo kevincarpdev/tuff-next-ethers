@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Link from "next/link";
 
 export default function Navbar() {
 	const [haveMetamask, sethaveMetamask] = useState(true);
@@ -73,9 +72,9 @@ export default function Navbar() {
             </button>
           </div>
           <div>
-            <Link href="https://twitter.com/tuffguysnft" target="_blank" passHref>
+            <a target="_blank" href="https://twitter.com/tuffguysnft" rel="noopener noreferrer">
               <button className="btn tw-btn">TG</button>
-            </Link>
+            </a>
           </div>
         </div>
       </nav>
