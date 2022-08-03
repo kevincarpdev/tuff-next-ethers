@@ -1,6 +1,6 @@
 .root {
-	position: relative;
-	padding: 0;
+	@apply relative pb-24 pt-0;
+	background-color: rgb(234, 76, 76);
 }
 
 .stepPanel {
