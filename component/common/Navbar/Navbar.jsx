@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from "react";
+import cn from "classnames";
 import Link from 'next/link'
+import s from "./Navbar.module.css";
+import HeaderLogo from "../../../public/img/logo.png";
+import Image from 'next/image'
 
 export default function Navbar() {
 	const [haveMetamask, sethaveMetamask] = useState(true);
@@ -55,33 +59,60 @@ export default function Navbar() {
   }, []);
 	return (
 		<>
-				<nav className="container">
-        <div>
-          <Link href="/">
-            <h3>Tuff Guys</h3>
-          </Link>
-          
-        </div>
-        <div className="d-flex" style={{ marginLeft: "auto" }}>
-          <div>
-            <button className="button" onClick={connectWeb3}>
-              {client.isConnected ? (
-                <>
-                  {client.address.slice(0, 4)}...
-                  {client.address.slice(38, 42)}
-                </>
-              ) : (
-                <>Connect Wallet</>
-              )}
-            </button>
+				<nav className={cn(s.root, "container")}>
+            <Link href="/" className={s.navLink}>
+              <Image
+                src={HeaderLogo}
+                alt={"Tuff Guys"}
+                quality="85"
+                layout="intrinsic"
+                loading="lazy"
+                width={80}
+                height={80}
+						  />
+            </Link>
+          <ul className={s.mainNav}>
+              <li>
+                <Link href="/" scroll={true}>
+                  About
+                </Link>
+              </li>
+            <li>
+              <Link href="/" scroll={true}>
+                  Roadmap
+              </Link>
+            </li>
+            <li>
+              <Link href="/" scroll={true}>
+                  Traits
+                </Link>
+            </li>
+            <li>
+              <Link href="/" scroll={true}>
+                  Team
+              </Link>
+            </li>
+            <li>
+              <Link href="/" scroll={true}>
+                  Contact
+              </Link>
+            </li>
+          </ul>
+          <div className="d-inline-flex">
+            <div>
+              <button className={cn(s.navButton, "button")} onClick={connectWeb3}>
+                {client.isConnected ? (
+                  <>
+                    {client.address.slice(0, 4)}...
+                    {client.address.slice(38, 42)}
+                  </>
+                ) : (
+                  <>Connect Wallet</>
+                )}
+              </button>
+            </div>
           </div>
-          <div>
-            <a target="_blank" href="https://twitter.com/tuffguysnft" rel="noopener noreferrer">
-              <button className="btn tw-btn">TG</button>
-            </a>
-          </div>
-        </div>
-      </nav>
+        </nav>
 		</>
 	);
 };

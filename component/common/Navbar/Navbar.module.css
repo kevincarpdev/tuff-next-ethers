@@ -1,96 +1,18 @@
 .root {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  gap: 0 6em;
+  @apply relative py-8 flex flex-row justify-between;
 }
-
-.copyright {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  gap: 10px 0;
-  color: #fff;
-  max-width: 200px;
+.navButton {
+  @apply px-6 py-2.5;
+  border-radius: 20px;
 }
-.footerLogoImage {
-  position: relative;
-  max-width: 200px;
+.mainNav {
+  @apply inline-flex flex-row justify-between items-center gap-x-8 text-lg;
+  
 }
-.footerLogoImage:hover {
-  cursor: pointer;
+.mainNav li a {
+  @apply opacity-100 hover:opacity-80 hover:cursor-pointer;
+  font-family: "Rammetto One",sans-serif;
 }
-.copyright p {
-  font-family: var(--font-serif);
-  font-size: 0.9rem;
-}
-.footerLinks {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  gap: 0 6em;
-  padding: 4em 0;
-}
-.footerNavColumn {
-  color: #fff;
-}
-.footerNavColumn h4 {
-  font-family: var(--font-serif);
-  font-weight: 600;
-  font-size: 1.3rem;
-  margin: 0 0 3px;
-}
-
-.footerNavColumn ul > li > a {
-  font-family: var(--font-serif);
-  font-size: 1rem;
-  font-weight: 400;
-}
-.footerNavColumn ul > li > a:hover {
-  opacity: 0.7;
-  cursor: pointer;
-}
-.socialNav {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 0 30px;
-  margin-top: 7px;
-}
-.socialNav li {
-  display: inline-flex;
-}
-.socialNav li a {
-  padding: 50%;
-  border-radius: 50%;
-  background-color: #fff;
-  color: #ff5858;
-}
-.socialNav li a svg {
-  width: 20px;
-  height: auto;
-}
-.socialNav li a:hover {
-  opacity: 0.7;
-  cursor: pointer;
-}
-
-@media screen and (max-width: 768px) {
-  .root {
-    gap: 0;
-  }
-  .footerLinks,
-  .root {
-    flex-direction: column;
-  }
-  .footerLinks {
-    gap: 2em 0;
-    text-align: center;
-    padding: 3em 0 3em;
-  }
+.navLink {
+  @apply hover:cursor-pointer;
 }

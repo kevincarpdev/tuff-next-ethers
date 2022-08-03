@@ -1,9 +1,5 @@
 .root {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	align-items: center;
-	gap: 0 2.5em;
+	@apply flex flex-row justify-between items-center gap-y-2;
 }
 .root:nth-of-type(odd) {
 	flex-direction: row-reverse;
