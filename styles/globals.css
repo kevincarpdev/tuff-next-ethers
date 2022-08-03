@@ -182,7 +182,7 @@ h5 {
 }
 
 .container {
-  @apply md:max-w-screen-xl mx-auto px-2;
+  @apply md:max-w-screen-xl mx-auto px-12;
 }
 
 .menuBar {

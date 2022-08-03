@@ -32,7 +32,9 @@ export default function Hero({ signMessageFunction }) {
 										src={MobileMarqueeImage1}
 										alt="Tuff Guys"
 										quality="85"
-										layout="intrinsic"
+										layout="fixed"
+										width={70}
+										height={70}
 										placeholder="blur"
 										className={s.mobileMarqueeImage} 
 										loading="lazy"
@@ -41,7 +43,9 @@ export default function Hero({ signMessageFunction }) {
 										src={MobileMarqueeImage2}
 										alt="Tuff Guys"
 										quality="85"
-										layout="intrinsic"
+										layout="fixed"
+										width={70}
+										height={70}
 										placeholder="blur"
 										className={s.mobileMarqueeImage} 
 										loading="lazy"
@@ -50,7 +54,9 @@ export default function Hero({ signMessageFunction }) {
 										src={MobileMarqueeImage3}
 										alt="Tuff Guys"
 										quality="85"
-										layout="intrinsic"
+										layout="fixed"
+										width={70}
+										height={70}
 										placeholder="blur"
 										className={s.mobileMarqueeImage} 
 										loading="lazy"
@@ -59,7 +65,9 @@ export default function Hero({ signMessageFunction }) {
 										src={MobileMarqueeImage4}
 										alt="Tuff Guys"
 										quality="85"
-										layout="intrinsic"
+										layout="fixed"
+										width={70}
+										height={70}
 										placeholder="blur"
 										className={s.mobileMarqueeImage} 
 										loading="lazy"
@@ -68,7 +76,9 @@ export default function Hero({ signMessageFunction }) {
 										src={MobileMarqueeImage5}
 										alt="Tuff Guys"
 										quality="85"
-										layout="intrinsic"
+										layout="fixed"
+										width={70}
+										height={70}
 										placeholder="blur"
 										className={s.mobileMarqueeImage} 
 										loading="lazy"
@@ -77,45 +87,55 @@ export default function Hero({ signMessageFunction }) {
 										src={MobileMarqueeImage1}
 										alt="Tuff Guys"
 										quality="85"
-										layout="intrinsic"
+										layout="fixed"
+										width={70}
+										height={70}
 										placeholder="blur"
-										className={s.mobileMarqueeImage} 
+										className={s.mobileMarqueeImage}
 										loading="lazy"
 									/>
 									<Image
 										src={MobileMarqueeImage2}
 										alt="Tuff Guys"
 										quality="85"
-										layout="intrinsic"
+										layout="fixed"
+										width={70}
+										height={70}
 										placeholder="blur"
-										className={s.mobileMarqueeImage} 
+										className={s.mobileMarqueeImage}
 										loading="lazy"
 									/>
 									<Image
 										src={MobileMarqueeImage3}
 										alt="Tuff Guys"
 										quality="85"
-										layout="intrinsic"
+										layout="fixed"
+										width={70}
+										height={70}
 										placeholder="blur"
-										className={s.mobileMarqueeImage} 
+										className={s.mobileMarqueeImage}
 										loading="lazy"
 									/>
 									<Image
 										src={MobileMarqueeImage4}
 										alt="Tuff Guys"
 										quality="85"
-										layout="intrinsic"
+										layout="fixed"
+										width={70}
+										height={70}
 										placeholder="blur"
-										className={s.mobileMarqueeImage} 
+										className={s.mobileMarqueeImage}
 										loading="lazy"
 									/>
 									<Image
 										src={MobileMarqueeImage5}
 										alt="Tuff Guys"
 										quality="85"
-										layout="intrinsic"
+										layout="fixed"
+										width={70}
+										height={70}
 										placeholder="blur"
-										className={s.mobileMarqueeImage} 
+										className={s.mobileMarqueeImage}
 										loading="lazy"
 									/>
 								</Marquee>
@@ -175,7 +195,9 @@ export default function Hero({ signMessageFunction }) {
 											src={MobileMarqueeImage6}
 											alt="Tuff Guys"
 											quality="85"
-											layout="intrinsic"
+											layout="fixed"
+											width={70}
+											height={70}
 											placeholder="blur"
 											className={s.mobileMarqueeImage}
 											loading="lazy"
@@ -184,7 +206,9 @@ export default function Hero({ signMessageFunction }) {
 											src={MobileMarqueeImage7}
 											alt="Tuff Guys"
 											quality="85"
-											layout="intrinsic"
+											layout="fixed"
+											width={70}
+											height={70}
 											placeholder="blur"
 											className={s.mobileMarqueeImage}
 											loading="lazy"
@@ -193,7 +217,9 @@ export default function Hero({ signMessageFunction }) {
 											src={MobileMarqueeImage8}
 											alt="Tuff Guys"
 											quality="85"
-											layout="intrinsic"
+											layout="fixed"
+											width={70}
+											height={70}
 											placeholder="blur"
 											className={s.mobileMarqueeImage}
 											loading="lazy"
@@ -202,7 +228,9 @@ export default function Hero({ signMessageFunction }) {
 											src={MobileMarqueeImage9}
 											alt="Tuff Guys"
 											quality="85"
-											layout="intrinsic"
+											layout="fixed"
+											width={70}
+											height={70}
 											placeholder="blur"
 											className={s.mobileMarqueeImage}
 											loading="lazy"
@@ -211,7 +239,9 @@ export default function Hero({ signMessageFunction }) {
 											src={MobileMarqueeImage10}
 											alt="Tuff Guys"
 											quality="85"
-											layout="intrinsic"
+											layout="fixed"
+											width={70}
+											height={70}
 											placeholder="blur"
 											className={s.mobileMarqueeImage}
 											loading="lazy"
@@ -220,7 +250,9 @@ export default function Hero({ signMessageFunction }) {
 											src={MobileMarqueeImage6}
 											alt="Tuff Guys"
 											quality="85"
-											layout="intrinsic"
+											layout="fixed"
+											width={70}
+											height={70}
 											placeholder="blur"
 											className={s.mobileMarqueeImage}
 											loading="lazy"
@@ -229,7 +261,9 @@ export default function Hero({ signMessageFunction }) {
 											src={MobileMarqueeImage7}
 											alt="Tuff Guys"
 											quality="85"
-											layout="intrinsic"
+											layout="fixed"
+											width={70}
+											height={70}
 											placeholder="blur"
 											className={s.mobileMarqueeImage}
 											loading="lazy"
@@ -238,7 +272,9 @@ export default function Hero({ signMessageFunction }) {
 											src={MobileMarqueeImage8}
 											alt="Tuff Guys"
 											quality="85"
-											layout="intrinsic"
+											layout="fixed"
+											width={70}
+											height={70}
 											placeholder="blur"
 											className={s.mobileMarqueeImage}
 											loading="lazy"
@@ -247,7 +283,9 @@ export default function Hero({ signMessageFunction }) {
 											src={MobileMarqueeImage9}
 											alt="Tuff Guys"
 											quality="85"
-											layout="intrinsic"
+											layout="fixed"
+											width={70}
+											height={70}
 											placeholder="blur"
 											className={s.mobileMarqueeImage}
 											loading="lazy"
@@ -256,7 +294,9 @@ export default function Hero({ signMessageFunction }) {
 											src={MobileMarqueeImage10}
 											alt="Tuff Guys"
 											quality="85"
-											layout="intrinsic"
+											layout="fixed"
+											width={70}
+											height={70}
 											placeholder="blur"
 											className={s.mobileMarqueeImage}
 											loading="lazy"
