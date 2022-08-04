@@ -28,8 +28,8 @@
 	border-bottom: 0;
 }
 .tableRow .statHeader {
+	@apply !text-base md:!text-lg;
 	font-family: var(--font-sans);
-	font-size: 1.4rem;
 	color: #fff;
 	text-align: left;
 	padding: 15px 0;
