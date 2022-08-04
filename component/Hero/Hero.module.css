@@ -43,7 +43,7 @@
   margin-top: 1.5em;
 }
 .heroExtraText h4 {
-  font-size: 1.5rem;
+  @apply text-lg;
   margin: 0;
 }
 .heroMobileMarquee {
