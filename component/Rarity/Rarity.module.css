@@ -9,8 +9,10 @@
 .image {
 	position: relative;
 	max-width: calc(60% - 4em);
+	margin-bottom: -10px;
 }
 .statTable {
+	@apply mb-12;
 	width: 100%;
 	color: #fff;
 }
