@@ -182,7 +182,7 @@ h5 {
 }
 
 .container {
-  @apply md:max-w-screen-xl mx-auto px-12;
+  @apply lg:max-w-screen-xl mx-auto px-12;
 }
 
 .menuBar {
@@ -412,8 +412,17 @@ nav {
 .marquee-container {
   overflow: hidden;
 }
-
-
+.vertical-timeline .vertical-timeline-element-content {
+  @apply shadow-none;
+}
+.vertical-timeline-element-date {
+  font-family: "Rammetto One",sans-serif;
+  @apply !text-3xl;
+}
+.vertical-timeline.vertical-timeline--two-columns .vertical-timeline-element-icon {
+  @apply shadow-none;
+  top: 15px;
+}
 
 @media (max-width: 600px) {
   .grid {
@@ -424,6 +433,12 @@ nav {
 
 
 @media screen and (max-width: 768px) {
+  .vertical-timeline .vertical-timeline-element-content-arrow {
+    top: 30px;
+  }
+  .vertical-timeline .vertical-timeline-element-content .vertical-timeline-element-date {
+    @apply pb-0 text-center float-none;
+  }
   .flexColumn,
   .flexRow {
     flex-direction: column;
@@ -444,6 +459,7 @@ nav {
   .container {
     padding: 0 2em;
   }
+  
 }
 
 @media screen and (max-width: 768px) {
@@ -451,5 +467,12 @@ nav {
     padding: 0;
     height: 100%;
     min-height: 50vh;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .vertical-timeline.vertical-timeline--two-columns .vertical-timeline-element-icon {
+    width: 30px;
+    height: 30px;
+    margin-left: -15px;
   }
 }

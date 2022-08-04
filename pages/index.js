@@ -2,6 +2,7 @@ import { signMessage } from "../utils/sign";
 import Head from 'next/head';
 import Navbar from "../component/common/Navbar/Navbar";
 import Hero from "../component/Hero/Hero";
+import Mission from "../component/Mission/Mission";
 import Footer from "../component/common/Footer/Footer";
 import Utility from "../component/Utility/Utility";
 import Rarity from "../component/Rarity/Rarity";
@@ -20,6 +21,7 @@ const Index = () => {
         <Navbar />
         <main>
           <Hero signMessageFunction={signMessage} />
+          <Mission />
           <Utility />
           <Rarity />
           <Team />

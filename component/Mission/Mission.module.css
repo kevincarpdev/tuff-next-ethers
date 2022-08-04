@@ -1,0 +1,16 @@
+.root {
+  @apply relative pt-24;
+  background-color: rgb(234, 76, 76);
+}
+.header {
+  @apply text-white text-2xl mb-12;
+}
+.gridWrapper {
+  @apply grid grid-cols-1 lg:grid-cols-3 place-items-center;
+}
+.roadmapWrapper {
+  @apply col-span-2;
+}
+.timelineDiv {
+  @apply my-36;
+}

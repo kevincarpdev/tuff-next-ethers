@@ -246,7 +246,7 @@ export default function Fuse() {
           )}
         
         {nfts.length != 0 && (
-          <div className="sm: grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 p-3">
+          <div className="sm: grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-3">
             <CharBuilder mintCharacter={mintCharacter} />
             {nfts.map((nft, i) => (
               <NFTCard key={i} data={nft} />
