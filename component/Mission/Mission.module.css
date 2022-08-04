@@ -1,21 +1,26 @@
 .root {
-  @apply relative pt-0;
+  @apply relative pt-0 mt-12 md:mt-0;
   background-color: rgb(234, 76, 76);
 }
 .header {
-  @apply text-white text-2xl mb-12 mt-12 md:mt-0;
+  @apply text-left text-white text-lg mt-12;
 }
 .gridWrapper {
-  @apply grid grid-cols-1 lg:grid-cols-3 place-items-center;
+  @apply grid grid-cols-1 md:grid-cols-5 lg:grid-cols-3 place-items-center px-8;
+}
+.imageWrapper {
+  @apply col-span-1 md:col-span-2 lg:col-span-1 my-12 md:my-0;
 }
 .roadmapWrapper {
-  @apply col-span-2 flex flex-col justify-end px-12;
+  @apply col-span-1 md:col-span-3 lg:col-span-2 flex flex-col justify-end;
 }
 .timelineDiv {
   @apply my-36;
 }
+
+
 .ourMission {
-  @apply relative bg-white py-12 md:-top-20;
+  @apply relative bg-white py-12 md:-top-10 lg:-top-20;
   border-radius: 15px;
 }
 .ourMissionHeader {
@@ -59,7 +64,7 @@
   color: rgb(254, 174, 89);
 }
 .toggleDiv {
-  @apply inline-flex flex-row  justify-center items-center ml-auto w-auto gap-x-4;
+  @apply inline-flex flex-row justify-center items-center ml-auto w-auto gap-x-4;
 }
 .toggleStateHeader {
   @apply text-white;
@@ -74,4 +79,16 @@
   @apply bg-black md:w-6 md:h-6 h-5 w-5 shadow-md transform duration-300 ease-in-out;
   background: rgb(255, 88, 88);
   border-radius: 9px;
+}
+
+.roadmapHeader {
+  @apply flex flex-row justify-between items-center;
+}
+
+.roadmapHeaderHeadline {
+  @apply !text-white !text-2xl;
+}
+
+.switchContent {
+  @apply flex flex-col gap-y-2 text-white text-left mb-12;
 }

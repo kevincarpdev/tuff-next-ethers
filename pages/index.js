@@ -18,17 +18,20 @@ const Index = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
 
-        <Navbar />
-        <main>
-          <Hero signMessageFunction={signMessage} />
-          <Mission />
-          <Utility />
-          <Rarity />
-          <Team />
-        </main>
-        <footer>
-          <Footer />
-        </footer>
+      <Navbar />
+      
+      <main>
+        <Hero signMessageFunction={signMessage} />
+        <Mission />
+        <Utility />
+        <Rarity />
+        <Team />
+      </main>
+
+      <footer>
+        <Footer />
+      </footer>
+
       <ExtraImagesMarquee />
     </>
   );

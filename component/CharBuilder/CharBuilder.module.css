@@ -4,7 +4,7 @@
 }
 
 .stepPanel {
-	@apply relative lg:flex justify-between flex-col lg:flex-row;
+	@apply relative md:flex justify-between flex-col md:flex-row;
 	border-radius: 40px;
 	padding: 4em 2em 0 0;
 	text-align: center;
@@ -13,7 +13,7 @@
 }
 
 .frame {
-	@apply relative lg:flex justify-center place-items-center;
+	@apply relative md:flex justify-center place-items-center;
 	z-index: 1;
 	margin: 5em;
 }
@@ -31,7 +31,7 @@
 }
 
 .fuseImages {
-	@apply relative w-64 h-64 mx-auto mb-12 lg:w-7/12 lg:h-auto lg:mb-0;
+	@apply relative w-64 h-64 mx-auto mb-12 md:w-7/12 md:h-auto md:mb-0;
 }
 
 .fuseImg {
@@ -40,7 +40,7 @@
 	pointer-events: none;
 }
 .controls {
-	@apply relative w-full lg:w-4/12 inline-flex gap-y-2 text-center justify-center py-12;
+	@apply relative w-full md:w-4/12 inline-flex gap-y-2 text-center justify-center py-12;
 	z-index: 3;
 	color: #fff;
 }

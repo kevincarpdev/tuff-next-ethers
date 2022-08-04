@@ -11,8 +11,10 @@ import MentalHealth from "../../public/img/mission2.png";
 import Charity from "../../public/img/mission3.png";
 
 export default function Utility() {
-  const [enabled, setEnabled] = useState(false)
+
+  const [enabled, setEnabled] = useState(true)
   const toggleClass = " transform translate-x-6";
+
   return (
     <>
       <section id="mission" className={cn(s.root, 'off-white')}>
@@ -73,10 +75,6 @@ export default function Utility() {
             </div>
           </div>
         </div>
-        
-        <h3 className={s.header}>Our Roadmap</h3>
-        
-        
         <div className={s.gridWrapper}>
           <div className={s.imageWrapper}>
             <Image
@@ -91,65 +89,181 @@ export default function Utility() {
               loading="lazy"
             />
           </div>
+
           <div className={s.roadmapWrapper}>
-            <div className={s.toggleDiv}>
-              <h3 className={cn(s.toggleStateHeader, enabled ? null : 'active')}>Roadmap</h3>
-              <div
-                className={s.toggleSwitch}
-                onClick={() => {
-                  setEnabled(!enabled);
-                }}
-              >
-                <div className={cn(s.toggleKnob, enabled ? null : toggleClass)} />
+            <div className={s.roadmapHeader}>
+              <h2 className={s.roadmapHeaderHeadline}>Our Roadmap</h2>
+              <div className={s.toggleDiv}>
+                <h3 className={cn(s.toggleStateHeader, enabled ? null : 'active')}>Roadmap</h3>
+                <div
+                  className={s.toggleSwitch}
+                  onClick={() => {
+                    setEnabled(!enabled);
+                  }}
+                >
+                  <div className={cn(s.toggleKnob, enabled ? null : toggleClass)} />
+                </div>
+                <h3 className={cn(s.toggleStateHeader, enabled ? 'active' : null)}>Donations</h3>
               </div>
-              <h3 className={cn(s.toggleStateHeader, enabled ? 'active' : null)}>Donations</h3>
             </div>
-            <VerticalTimeline lineColor={'#ED6E70'}>
-              <VerticalTimelineElement
-                className={cn(s.timelineDiv, 'vertical-timeline-element--work')}
-                contentStyle={{ background: 'rgba(185,79,79,.6901960784313725)', color: '#fff' }}
-                date="25%"
-                iconStyle={{ background: 'rgb(255,255,255)', color: '#fff' }}
-              >
-                <h3 className="vertical-timeline-element-title">We launch exclusive giveaways for Tuff Guys holders.</h3>
-              </VerticalTimelineElement>
-              <VerticalTimelineElement
-                className={cn(s.timelineDiv, 'vertical-timeline-element--work')}
-                contentStyle={{ background: 'rgba(185,79,79,.6901960784313725)', color: '#fff' }}
-                date="50%"
-                iconStyle={{ background: 'rgb(255,255,255)', color: '#fff' }}
-              >
-                <h3 className="vertical-timeline-element-title">We release limited merch for all the tuff guys (and gals) that own Tuff Guys.</h3>
-              </VerticalTimelineElement>
-              <VerticalTimelineElement
-                className={cn(s.timelineDiv, 'vertical-timeline-element--work')}
-                contentStyle={{ background: 'rgba(185,79,79,.6901960784313725)', color: '#fff' }}
-                date="75%"
-                iconStyle={{ background: 'rgb(255,255,255)', color: '#fff' }}
-              >
-                <h3 className="vertical-timeline-element-title">Time for AIRDROPS!</h3>
-                <p>
-                  We will begin to airdrop our holders equipment that they can use in the Metaverse.
-                </p>
-              </VerticalTimelineElement>
-              <VerticalTimelineElement
-                className={cn(s.timelineDiv, 'vertical-timeline-element--work')}
-                contentStyle={{ background: 'rgba(185,79,79,.6901960784313725)', color: '#fff' }}
-                date="90%"
-                iconStyle={{ background: 'rgb(255,255,255)', color: '#fff' }}
-              >
-                <h3 className="vertical-timeline-element-title">As a treat for early supporters, not only will we ramp up existing giveaways for rare Tuff Guys, but we will begin to actively reward the most contributive and committed among the community.</h3>
-              </VerticalTimelineElement>
-              <VerticalTimelineElement
-                className={cn(s.timelineDiv, 'vertical-timeline-element--work')}
-                contentStyle={{ background: 'rgba(185,79,79,.6901960784313725)', color: '#fff' }}
-                date="100%"
-                iconStyle={{ background: 'rgb(16, 204, 82)', color: '#fff' }}
-              >
-                <h3 className="vertical-timeline-element-title">We begin to develop our COMIC STRIPS featuring your own tuff guys and using them to spread mental health awareness. These will be airdropped to every single Tuff Guy holder. This will kick off the 2nd generation of Tuff guys and our roadmap will keep up with MONTHLY updates.</h3>
-              </VerticalTimelineElement>
+           
+
+            {enabled ? (
+              <>
+                <h3 className={s.header}>Tuffs Metaverse Journey</h3>
+                <VerticalTimeline lineColor={'#ED6E70'}>
+                  <VerticalTimelineElement
+                    className={cn(s.timelineDiv, 'vertical-timeline-element--work')}
+                    contentStyle={{ color: '#fff' }}
+                    date="25%"
+                    iconStyle={{ background: '#ED6E70', color: '#fff' }}
+                  >
+                    <p>We launch exclusive giveaways for Tuff Guys holders.</p>
+                  </VerticalTimelineElement>
+                  <VerticalTimelineElement
+                    className={cn(s.timelineDiv, 'vertical-timeline-element--work')}
+                    contentStyle={{ color: '#fff' }}
+                    date="50%"
+                    iconStyle={{ background: '#ED6E70', color: '#fff' }}
+                  >
+                    <p>We release limited merch for all the tuff guys (and gals) that own Tuff Guys.</p>
+                  </VerticalTimelineElement>
+                  <VerticalTimelineElement
+                    className={cn(s.timelineDiv, 'vertical-timeline-element--work')}
+                    contentStyle={{ color: '#fff' }}
+                    date="75%"
+                    iconStyle={{ background: '#ED6E70', color: '#fff' }}
+                  >
+                    <p>
+                      Time for AIRDROPS!
+                      We will begin to airdrop our holders equipment that they can use in the Metaverse.
+                    </p>
+                  </VerticalTimelineElement>
+                  <VerticalTimelineElement
+                    className={cn(s.timelineDiv, 'vertical-timeline-element--work')}
+                    contentStyle={{ color: '#fff' }}
+                    date="90%"
+                    iconStyle={{ background: '#ED6E70', color: '#fff' }}
+                  >
+                    <p>As a treat for early supporters, not only will we ramp up existing giveaways for rare Tuff Guys, but we will begin to actively reward the most contributive and committed among the community.</p>
+                  </VerticalTimelineElement>
+                  <VerticalTimelineElement
+                    className={cn(s.timelineDiv, 'vertical-timeline-element--work')}
+                    contentStyle={{ color: '#fff' }}
+                    date="100%"
+                    iconStyle={{ background: 'rgb(16, 204, 82)', color: '#fff' }}
+                  >
+                    <p>We begin to develop our COMIC STRIPS featuring your own tuff guys and using them to spread mental health awareness. These will be airdropped to every single Tuff Guy holder. This will kick off the 2nd generation of Tuff guys and our roadmap will keep up with MONTHLY updates.</p>
+                  </VerticalTimelineElement>
+
+                </VerticalTimeline>
+              </>
               
-            </VerticalTimeline>
+            ) : (
+                <>
+                <div className={s.switchContent}>
+                    <h3 className={s.header}>Mental Health Roadmap</h3>
+                    <p>Our primary aim with Tuff Guys is to create a strong contribution towards mental health and shining a light on the situation. Mental health awareness is something that impacts all of us, and we are partnering up with a number of leading foundations to help drive awareness.</p>
+                    <p>We plan to donate a total of 55 Ethereum to respective charities that the entire Tuff Guys community will decide together on. We will break up the pool of donations into Ten total tiers:</p>
+                </div>
+                  
+                 <VerticalTimeline lineColor={'#ED6E70'}>
+                    <VerticalTimelineElement
+                      className={cn(s.timelineDiv, s.donationsDiv, 'donations')}
+                      contentStyle={{ color: '#fff' }}
+                      date="10%"
+                      iconStyle={{ background: '#ED6E70', color: '#fff' }}
+                    >
+                      <h2>1ETH</h2>
+                      <h3 className={s.donations}>Will be donated to charity of communities choice.</h3>
+                    </VerticalTimelineElement>
+                    <VerticalTimelineElement
+                      className={cn(s.timelineDiv, s.donationsDiv, 'donations')}
+                      contentStyle={{ color: '#fff' }}
+                      date="20%"
+                      iconStyle={{ background: '#ED6E70', color: '#fff' }}
+                    >
+                      <h2>2ETH</h2>
+                      <h3>Will be donated to charity of communities choice.</h3>
+                    </VerticalTimelineElement>
+                    <VerticalTimelineElement
+                      className={cn(s.timelineDiv, s.donationsDiv, 'donations')}
+                      contentStyle={{ color: '#fff' }}
+                      date="30%"
+                      iconStyle={{ background: '#ED6E70', color: '#fff' }}
+                    >
+                      <h2>3ETH</h2>
+                      <h3>Will be donated to charity of communities choice.</h3>
+                    </VerticalTimelineElement>
+                    <VerticalTimelineElement
+                      className={cn(s.timelineDiv, s.donationsDiv, 'donations')}
+                      contentStyle={{ color: '#fff' }}
+                      date="40%"
+                      iconStyle={{ background: '#ED6E70', color: '#fff' }}
+                    >
+                      <h2>4ETH</h2>
+                      <h3>Will be donated to charity of communities choice.</h3>
+                    </VerticalTimelineElement>
+                    <VerticalTimelineElement
+                      className={cn(s.timelineDiv, s.donationsDiv, 'donations')}
+                      contentStyle={{ color: '#fff' }}
+                      date="50%"
+                      iconStyle={{ background: '#ED6E70', color: '#fff' }}
+                    >
+                      <h2>5ETH</h2>
+                      <h3>Will be donated to charity of communities choice.</h3>
+                    </VerticalTimelineElement>
+                    <VerticalTimelineElement
+                      className={cn(s.timelineDiv, s.donationsDiv, 'donations')}
+                      contentStyle={{ color: '#fff' }}
+                      date="60%"
+                      iconStyle={{ background: '#ED6E70', color: '#fff' }}
+                    >
+                      <h2>6ETH</h2>
+                      <h3>Will be donated to charity of communities choice.</h3>
+                    </VerticalTimelineElement>
+                    <VerticalTimelineElement
+                      className={cn(s.timelineDiv, s.donationsDiv, 'donations')}
+                      contentStyle={{ color: '#fff' }}
+                      date="70%"
+                      iconStyle={{ background: '#ED6E70', color: '#fff' }}
+                    >
+                      <h2>7ETH</h2>
+                      <h3>Will be donated to charity of communities choice.</h3>
+                    </VerticalTimelineElement>
+                    <VerticalTimelineElement
+                      className={cn(s.timelineDiv, s.donationsDiv, 'donations')}
+                      contentStyle={{ color: '#fff' }}
+                      date="80%"
+                      iconStyle={{ background: '#ED6E70', color: '#fff' }}
+                    >
+                      <h2>8ETH</h2>
+                      <h3>Will be donated to charity of communities choice.</h3>
+                    </VerticalTimelineElement>
+                    <VerticalTimelineElement
+                      className={cn(s.timelineDiv, s.donationsDiv, 'donations')}
+                      contentStyle={{ color: '#fff' }}
+                      date="90%"
+                      iconStyle={{ background: '#ED6E70', color: '#fff' }}
+                    >
+                      <h2>9ETH</h2>
+                      <h3>Will be donated to charity of communities choice.</h3>
+                    </VerticalTimelineElement>
+                    <VerticalTimelineElement
+                      className={cn(s.timelineDiv, s.donationsDiv, 'donations')}
+                      contentStyle={{ color: '#fff' }}
+                      date="100%"
+                      iconStyle={{ background: 'rgb(16, 204, 82)', color: '#fff' }}
+                    >
+                      <h2>10ETH</h2>
+                      <h3>Will be donated to charity of communities choice.</h3>
+                    </VerticalTimelineElement>
+
+                  </VerticalTimeline>
+                </>
+            )
+            }
+            
           </div>
         </div>
       </section>

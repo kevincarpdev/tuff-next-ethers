@@ -3,6 +3,7 @@
   padding: 0 0 4em;
 }
 .hero {
+  @apply px-0;
   padding: 3em 0 9em;
 }
 .heroWrap {
