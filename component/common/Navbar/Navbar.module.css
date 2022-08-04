@@ -1,5 +1,5 @@
 .root {
-  @apply relative py-8 flex flex-row justify-between;
+  @apply hidden relative py-8 md:flex flex-row justify-between;
 }
 .navButton {
   @apply px-6 py-2.5;

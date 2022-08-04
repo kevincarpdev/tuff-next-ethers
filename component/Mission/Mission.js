@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { useState } from "react";
 import s from "./Mission.module.css";
 import cn from "classnames";
 import Image from 'next/image'
@@ -11,10 +11,14 @@ import MentalHealth from "../../public/img/mission2.png";
 import Charity from "../../public/img/mission3.png";
 
 export default function Utility() {
+  const [toggle, setToggle] = useState(true);
+
+  const toggleClass = ' transform translate-x-5';
   return (
     <>
       <section id="mission" className={cn(s.root, 'off-white')}>
         <div className={cn(s.ourMission, 'container')}>
+          
           <h2 className={s.ourMissionHeader}>Our Tuff Mission</h2>
           <div className={cn(s.contentRow)}>
             <div className={s.contentColumn}>
@@ -71,6 +75,21 @@ export default function Utility() {
           </div>
         </div>
         <h3 className={s.header}>Our Roadmap</h3>
+        <div>
+          <div
+            className="md:w-14 md:h-7 w-12 h-6 flex items-center bg-gray-300 rounded-full p-1 cursor-pointer"
+            onClick={() => {
+              setToggle(!toggle);
+            }}
+          >
+            {/* Switch */}
+            <div
+              className={"md:w-6 md:h-6 h-5 w-5 rounded-full shadow-md transform" + (toggle ? null : toggleClass)}>
+            </div>
+
+          </div>
+        </div>
+        
         <div className={s.gridWrapper}>
           <div className={s.imageWrapper}>
             <Image
