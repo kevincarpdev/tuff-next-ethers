@@ -318,7 +318,7 @@ nav {
   @apply bg-transparent shadow-none text-left !p-0;
 }
 .vertical-timeline .donations .vertical-timeline-element-content {
-  @apply md:!flex md:!flex-row !gap-x-4 !place-items-center;
+  @apply !flex !flex-col md:!flex-row !gap-x-4 !place-items-start md:!place-items-center;
 }
 .vertical-timeline .vertical-timeline-element-content h3 {
   color: #ED6E70;
