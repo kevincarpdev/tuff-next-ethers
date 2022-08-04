@@ -11,9 +11,8 @@ import MentalHealth from "../../public/img/mission2.png";
 import Charity from "../../public/img/mission3.png";
 
 export default function Utility() {
-  const [toggle, setToggle] = useState(true);
-
-  const toggleClass = ' transform translate-x-5';
+  const [enabled, setEnabled] = useState(false)
+  const toggleClass = " transform translate-x-6";
   return (
     <>
       <section id="mission" className={cn(s.root, 'off-white')}>
@@ -74,21 +73,9 @@ export default function Utility() {
             </div>
           </div>
         </div>
+        
         <h3 className={s.header}>Our Roadmap</h3>
-        <div>
-          <div
-            className="md:w-14 md:h-7 w-12 h-6 flex items-center bg-gray-300 rounded-full p-1 cursor-pointer"
-            onClick={() => {
-              setToggle(!toggle);
-            }}
-          >
-            {/* Switch */}
-            <div
-              className={"md:w-6 md:h-6 h-5 w-5 rounded-full shadow-md transform" + (toggle ? null : toggleClass)}>
-            </div>
-
-          </div>
-        </div>
+        
         
         <div className={s.gridWrapper}>
           <div className={s.imageWrapper}>
@@ -105,6 +92,18 @@ export default function Utility() {
             />
           </div>
           <div className={s.roadmapWrapper}>
+            <div className={s.toggleDiv}>
+              <h3 className={cn(s.toggleStateHeader, enabled ? null : 'active')}>Roadmap</h3>
+              <div
+                className={s.toggleSwitch}
+                onClick={() => {
+                  setEnabled(!enabled);
+                }}
+              >
+                <div className={cn(s.toggleKnob, enabled ? null : toggleClass)} />
+              </div>
+              <h3 className={cn(s.toggleStateHeader, enabled ? 'active' : null)}>Donations</h3>
+            </div>
             <VerticalTimeline lineColor={'#ED6E70'}>
               <VerticalTimelineElement
                 className={cn(s.timelineDiv, 'vertical-timeline-element--work')}

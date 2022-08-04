@@ -412,6 +412,9 @@ nav {
 .marquee-container {
   overflow: hidden;
 }
+.vertical-timeline {
+  @apply !w-full !px-0;
+}
 .vertical-timeline .vertical-timeline-element-content {
   @apply shadow-none;
 }
@@ -423,7 +426,9 @@ nav {
   @apply shadow-none;
   top: 15px;
 }
-
+.active {
+  @apply opacity-60;
+}
 @media (max-width: 600px) {
   .grid {
     width: 100%;

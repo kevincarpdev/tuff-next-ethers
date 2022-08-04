@@ -9,7 +9,7 @@
   @apply grid grid-cols-1 lg:grid-cols-3 place-items-center;
 }
 .roadmapWrapper {
-  @apply col-span-2;
+  @apply col-span-2 flex flex-col justify-end px-12;
 }
 .timelineDiv {
   @apply my-36;
@@ -57,4 +57,21 @@
 }
 .charityTitle {
   color: rgb(254, 174, 89);
+}
+.toggleDiv {
+  @apply inline-flex flex-row  justify-center items-center ml-auto w-auto gap-x-4;
+}
+.toggleStateHeader {
+  @apply text-white;
+}
+.toggleSwitch {
+  @apply md:w-14 md:h-7 w-12 h-6 flex items-center p-1 cursor-pointer text-center;
+  background: #fff;
+  border-radius: 9px;
+}
+
+.toggleKnob {
+  @apply bg-black md:w-6 md:h-6 h-5 w-5 shadow-md transform duration-300 ease-in-out;
+  background: rgb(255, 88, 88);
+  border-radius: 9px;
 }
