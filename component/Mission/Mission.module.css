@@ -1,5 +1,5 @@
 .root {
-  @apply relative pt-0 mt-12 md:mt-0;
+  @apply relative pt-0 mt-12 md:mt-0 pb-48;
   background-color: rgb(234, 76, 76);
 }
 .header {
@@ -64,7 +64,7 @@
   color: rgb(254, 174, 89);
 }
 .toggleDiv {
-  @apply inline-flex flex-row justify-center items-center ml-auto w-auto gap-x-4;
+  @apply inline-flex flex-row justify-center items-center md:ml-auto w-auto gap-x-4 mt-6 md:mt-0;
 }
 .toggleStateHeader {
   @apply text-white;
@@ -82,7 +82,7 @@
 }
 
 .roadmapHeader {
-  @apply flex flex-row justify-between items-center;
+  @apply flex flex-col md:flex-row justify-between items-center;
 }
 
 .roadmapHeaderHeadline {
