@@ -50,13 +50,13 @@ export default function Footer() {
 								</motion.a>
 							</li>
 							<li>
-								<motion.a
+								<a
 									target={"_blank"}
 									whileHover={{ scale: 1.2 }}
 									whileTap={{ scale: 1.0 }}
 								>
 									OpenSea
-								</motion.a>
+								</a>
 							</li>
 						</ul>
 					</div>
@@ -70,13 +70,11 @@ export default function Footer() {
 								<a href="#team">Team</a>
 							</li>
 							<li>
-								<motion.a
-									target={""}
-									whileHover={{ scale: 1.2 }}
-									whileTap={{ scale: 1.0 }}
+								<a
+									href={"#footer"}
 								>
 									Contact Us
-								</motion.a>
+								</a>
 							</li>
 						</ul>
 					</div>

@@ -73,29 +73,29 @@ export default function Navbar() {
             </Link>
           <ul className={s.mainNav}>
               <li>
-                <Link href="/" scroll={true}>
+                <a href="#about">
                   About
-                </Link>
+                </a>
               </li>
             <li>
-              <Link href="/" scroll={true}>
+              <a href="#mission">
                   Roadmap
-              </Link>
+              </a>
             </li>
             <li>
-              <Link href="/" scroll={true}>
+              <a href="#rarity">
                   Traits
-                </Link>
+              </a>
             </li>
             <li>
-              <Link href="/" scroll={true}>
+              <a href="#team">
                   Team
-              </Link>
+              </a>
             </li>
             <li>
-              <Link href="/" scroll={true}>
+              <a href="#footer">
                   Contact
-              </Link>
+              </a>
             </li>
           </ul>
           <div className="d-inline-flex">

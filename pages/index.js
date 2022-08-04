@@ -28,7 +28,7 @@ const Index = () => {
         <Team />
       </main>
 
-      <footer>
+      <footer id="footer">
         <Footer />
       </footer>
 
