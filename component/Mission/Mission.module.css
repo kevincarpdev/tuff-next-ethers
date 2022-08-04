@@ -1,9 +1,9 @@
 .root {
-  @apply relative pt-24;
+  @apply relative pt-0;
   background-color: rgb(234, 76, 76);
 }
 .header {
-  @apply text-white text-2xl mb-12;
+  @apply text-white text-2xl mb-12 mt-12 md:mt-0;
 }
 .gridWrapper {
   @apply grid grid-cols-1 lg:grid-cols-3 place-items-center;
@@ -13,4 +13,48 @@
 }
 .timelineDiv {
   @apply my-36;
+}
+.ourMission {
+  @apply relative bg-white py-12 md:-top-20;
+  border-radius: 15px;
+}
+.ourMissionHeader {
+  @apply text-black !text-2xl mb-8;
+}
+.contentRow {
+  @apply grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-12 md:gap-y-0;
+}
+.contentColumn p {
+  @apply text-sm text-center mx-auto;
+  max-width: 30ch;
+  color: #727272;
+  font-family: "Prompt",sans-serif;
+}
+.content {
+  @apply p-4 inline-flex;
+  border-radius: 15px;
+}
+.community {
+  background-color: rgb(170, 153, 233);
+  color: rgb(170, 153, 233);
+}
+.mentalHealth {
+  background-color: rgb(98, 161, 147);
+  color: rgb(98, 161, 147);
+}
+.charity {
+  background-color: rgb(254, 174, 89);
+  color: rgb(254, 174, 89);
+}
+.contentTitle {
+  @apply my-2;
+}
+.communityTitle {
+  color: rgb(170, 153, 233);
+}
+.mentalHealthTitle {
+  color: rgb(98, 161, 147);
+}
+.charityTitle {
+  color: rgb(254, 174, 89);
 }

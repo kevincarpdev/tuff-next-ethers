@@ -5,13 +5,71 @@ import cn from "classnames";
 import Image from 'next/image'
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
-
 import Roadmap from "../../public/img/roadmap.png";
+import Community from "../../public/img/mission1.png";
+import MentalHealth from "../../public/img/mission2.png";
+import Charity from "../../public/img/mission3.png";
 
 export default function Utility() {
   return (
     <>
       <section id="mission" className={cn(s.root, 'off-white')}>
+        <div className={cn(s.ourMission, 'container')}>
+          <h2 className={s.ourMissionHeader}>Our Tuff Mission</h2>
+          <div className={cn(s.contentRow)}>
+            <div className={s.contentColumn}>
+              <div className={cn(s.content, s.community)}>
+                <Image
+                  src={Community}
+                  alt="Community"
+                  quality="85"
+                  layout="fixed"
+                  width={70}
+                  height={61}
+                  placeholder="blur"
+                  className={s.contentImage}
+                  loading="lazy"
+                />
+              </div>
+              <h4 className={cn(s.contentTitle, s.communityTitle)}>Community</h4>
+              <p>Our community drives everything here at Tuff Guys, We are creating a community that believes in our goals and contributes a positive impact towards our mission. Come over to our Discord and tune into our weekly Mental Health seminars for Free!</p>
+            </div>
+            <div className={s.contentColumn}>
+              <div className={cn(s.content, s.mentalHealth)}>
+                <Image
+                  src={MentalHealth}
+                  alt="Mental Health"
+                  quality="85"
+                  layout="fixed"
+                  width={64}
+                  height={45}
+                  placeholder="blur"
+                  className={s.contentImage}
+                  loading="lazy"
+                />
+              </div>
+              <h4 className={cn(s.contentTitle, s.mentalHealthTitle)}>Mental Health</h4>
+              <p>Mental health is a big concern in our society and we hope to shine a light on the situation with our community.</p>
+            </div>
+            <div className={s.contentColumn}>
+              <div className={cn(s.content, s.charity)}>
+                <Image
+                  src={Charity}
+                  alt="Charity"
+                  quality="85"
+                  layout="fixed"
+                  width={74}
+                  height={45}
+                  placeholder="blur"
+                  className={s.contentImage}
+                  loading="lazy"
+                />
+              </div>
+              <h4 className={cn(s.contentTitle, s.charityTitle)}>Charity</h4>
+              <p>Our team here at Tuff Guys will be donating to various charities focusing on Mental Health. The Charities will be selected with our discord community.</p>
+            </div>
+          </div>
+        </div>
         <h3 className={s.header}>Our Roadmap</h3>
         <div className={s.gridWrapper}>
           <div className={s.imageWrapper}>
