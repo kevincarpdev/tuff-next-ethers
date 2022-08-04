@@ -110,7 +110,7 @@ export default function Utility() {
 
             {enabled ? (
               <>
-                <h3 className={s.header}>Tuffs Metaverse Journey</h3>
+                <h3 className={cn(s.header, 'mb-12')}>Tuffs Metaverse Journey</h3>
                 <VerticalTimeline lineColor={'#ED6E70'}>
                   <VerticalTimelineElement
                     className={cn(s.timelineDiv, 'vertical-timeline-element--work')}
