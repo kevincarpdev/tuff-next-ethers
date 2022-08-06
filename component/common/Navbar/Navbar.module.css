@@ -1,5 +1,5 @@
 .root {
-  @apply relative py-8 flex flex-row justify-between;
+  @apply relative z-40 py-8 flex flex-row justify-between;
 }
 .navButton {
   @apply px-6 py-2.5;
@@ -17,12 +17,12 @@
   border-bottom-right-radius: 0;
 }
 .mainNav {
-  @apply inline-flex flex-row justify-between items-center gap-x-8 text-lg;
+  @apply hidden md:inline-flex flex-row justify-between items-center gap-x-8;
   
 }
 .mainNav li a {
   @apply opacity-100 hover:opacity-80 hover:cursor-pointer;
-  font-family: "Rammetto One",sans-serif;
+  font-family: "Rammetto One", sans-serif;
 }
 .navLink {
   @apply hover:cursor-pointer;
