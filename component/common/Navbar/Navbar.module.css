@@ -31,13 +31,24 @@
   @apply absolute flex flex-col;
   
 }
-
 .navDropLink {
   @apply hover:underline;
 }
 .navButtonDrop {
-  @apply inline-flex px-8 py-1 border-0 text-sm justify-center;
+  @apply inline-flex px-8 py-2.5 border-0 text-sm justify-center;
   background-color: rgb(234, 76, 76);
+  border-top: 1px solid rgb(204, 63, 63);
+}
+.navButtonDrop:first-child {
+  margin-top: 3px;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  border-top-color: transparent;
+}
+.navButtonDrop:last-child {
+  
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
 }
 .navButtonDrop:hover {
   background-color: rgb(174, 54, 54);

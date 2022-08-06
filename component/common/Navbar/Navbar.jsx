@@ -220,6 +220,9 @@ export default function Navbar() {
                     leaveTo="transform opacity-0 scale-95"
                   >
                     <Menu.Items className={s.navItems}>
+                      <Menu.Item className={s.navDropLink}>
+                          <CustomLink href="#">My Tuffs</CustomLink>
+                        </Menu.Item>
                         <Menu.Item className={s.navDropLink}>
                           <CustomLink href="/fuse">Fuse</CustomLink>
                         </Menu.Item>
@@ -228,7 +231,6 @@ export default function Navbar() {
                         </Menu.Item>
                       </Menu.Items>
                   </Transition>
-                  
                 </>
                 )}
                 </Menu>
