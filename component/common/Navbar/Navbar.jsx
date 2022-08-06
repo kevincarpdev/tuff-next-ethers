@@ -217,7 +217,7 @@ export default function Navbar() {
                           <Link href="/fuse"><a className={s.navButtonDrop}>Fuse</a></Link>
                         </Menu.Item>
                         <Menu.Item className={s.navDropLink}>
-                          <Link href="#" onClick={disconnectWeb3}><a className={s.navButtonDrop}>Disconnect</a></Link>
+                          <Link href="" ><a className={s.navButtonDrop} onClick={disconnectWeb3}>Disconnect</a></Link>
                         </Menu.Item>
                       </Menu.Items>
                   </Transition>
