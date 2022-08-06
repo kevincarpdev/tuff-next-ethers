@@ -40,13 +40,6 @@ export default function Navbar() {
           isConnected: false,
         });
       }
-      //const netWorkId = ethereum.net.getId();
-      //console.log("accounts", accounts);
-      // if () {
-      //   setclient({
-      //   isConnected: false,
-      //   wrongNetwork: true
-      // });
     } else {
       sethaveMetamask(false);
     }
@@ -118,11 +111,15 @@ export default function Navbar() {
         });
         return;
       }
+      const accounts = await ethereum.request({
+        method: "eth_requestAccounts",
+      });
+
       setclient({
         isConnected: false,
         address: '0x0',
       });
-      //window.location.reload();
+
     } catch (error) {
       toast.error("Error connecting to metamask" + error, {
         position: "top-right",
