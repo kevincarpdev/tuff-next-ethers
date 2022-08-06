@@ -79,7 +79,7 @@ export default function Navbar() {
         address: accounts[0],
       });
 
-      toast.success("Connected to MetaMask", {
+      toast.success("Connected to Mainnet.", {
         position: "top-right",
         autoClose: true,
         hideProgressBar: true,
