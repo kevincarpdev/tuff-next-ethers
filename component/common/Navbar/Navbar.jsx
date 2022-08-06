@@ -4,6 +4,7 @@ import Link from 'next/link'
 import s from "./Navbar.module.css";
 import HeaderLogo from "../../../public/img/logo.png";
 import Image from 'next/image'
+import { Menu } from '@headlessui/react'
 
 export default function Navbar() {
 	const [haveMetamask, sethaveMetamask] = useState(true);
@@ -27,6 +28,13 @@ export default function Navbar() {
           isConnected: false,
         });
       }
+      //const netWorkId = ethereum.net.getId();
+      //console.log("accounts", accounts);
+      // if () {
+      //   setclient({
+      //   isConnected: false,
+      //   wrongNetwork: true
+      // });
     } else {
       sethaveMetamask(false);
     }
@@ -54,9 +62,46 @@ export default function Navbar() {
     }
   };
 
+  const disconnectWeb3 = async () => {
+    try {
+      const { ethereum } = window;
+
+      if (!ethereum) {
+        console.log("Metamask not detected");
+        return;
+      }
+      setclient({
+        isConnected: false,
+        address: '0x0',
+      });
+      //window.location.reload();
+    } catch (error) {
+      console.log("Error connecting to metamask", error);
+    }
+  };
+
+  const changeNetwork = async () => {
+    try {
+      const { ethereum } = window;
+
+      if (!ethereum) {
+        console.log("Metamask not detected");
+        return;
+      }
+       await ethereum.request({
+          method: 'wallet_switchEthereumChain',
+          params: [{ chainId: '0x1' }],
+      });
+    } catch (error) {
+      console.log("Error connecting to metamask", error);
+    }
+  };
+
   useEffect(() => {
     checkConnection();
   }, []);
+
+
 	return (
 		<>
 				<nav className={cn(s.root, "container")}>
@@ -99,19 +144,33 @@ export default function Navbar() {
             </li>
           </ul>
           <div className="d-inline-flex">
-            <div>
-              <button className={cn(s.navButton, "button")} onClick={connectWeb3}>
+              <Menu>
                 {client.isConnected ? (
                   <>
-                    {client.address.slice(0, 4)}...
-                    {client.address.slice(38, 42)}
+                  <Menu.Button className={cn(s.navButton, "button")}>
+                      {client.address.slice(0, 4)}...
+                      {client.address.slice(38, 42)}
+                    </Menu.Button>
+                      <Menu.Items>
+                        <Menu.Item>
+                          {({ active }) => (
+                            <a
+                              className={cn(`${active && 'underline'}`, s.navDropLink)}
+                              onClick={disconnectWeb3}
+                            >
+                              Disconnect
+                            </a>
+                          )}
+                        </Menu.Item>
+                      </Menu.Items>
                   </>
-                ) : (
-                  <>Connect Wallet</>
-                )}
-              </button>
+                  ) : (
+                    <Menu.Button onClick={connectWeb3}>
+                      Connect Wallet
+                    </Menu.Button>
+                  )}
+                  </Menu>
             </div>
-          </div>
         </nav>
 		</>
 	);

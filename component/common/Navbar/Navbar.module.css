@@ -16,3 +16,13 @@
 .navLink {
   @apply hover:cursor-pointer;
 }
+.navDropLink {
+  @apply absolute inline-flex px-8 py-1 border-2 mt-2 text-sm mx-auto justify-center;
+  border-radius: 20px;
+}
+.navDropLink:hover {
+  background-color: #fff;
+  color: #ff5858;
+  cursor: pointer;
+  text-decoration: none;
+}
