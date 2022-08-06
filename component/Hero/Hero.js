@@ -17,6 +17,7 @@ import MobileMarqueeImage7 from "../../public/img/heromobile7.png";
 import MobileMarqueeImage8 from "../../public/img/heromobile8.png";
 import MobileMarqueeImage9 from "../../public/img/heromobile9.png";
 import MobileMarqueeImage10 from "../../public/img/heromobile10.png";
+import { motion } from "framer-motion";
 
 export default function Hero({ signMessageFunction }) {
 	const signMessage = signMessageFunction;
@@ -140,17 +141,21 @@ export default function Hero({ signMessageFunction }) {
 									/>
 								</Marquee>
 							</div>
-							<div className={s.imageContainer}>
+							<motion.div
+								whileHover={{ scale: 1.2 }}
+								className={s.imageContainer}
+							>
 								<Image
 									src={HeroLeft}
 									alt="Tuff Guys Left"
 									quality="85"
 									layout="intrinsic"
 									placeholder="blur"
-									className={s.image} 
+									className={s.image}
 									loading="lazy"
 								/>
-							</div>
+							</motion.div>
+							
 							<div className={s.heroText}>
 								<div className={s.badge}>Sold out!</div>
 									<Link className={s.heroBannerMain} href="/" scroll={false} passHref>
@@ -178,17 +183,21 @@ export default function Hero({ signMessageFunction }) {
 
 								</div>
 							</div>
-							<div className={s.imageContainer}>
+							<motion.div
+								whileHover={{ scale: 1.2 }}
+								className={s.imageContainer}
+							>
 								<Image
 									src={HeroRight}
 									alt="Tuff Guys Right"
 									quality="85"
 									layout="intrinsic"
 									placeholder="blur"
-									className={s.image} 
+									className={s.image}
 									loading="lazy"
 								/>
-							</div>
+							</motion.div>
+							 
 							<div className={s.heroMobileMarquee}>
 								<Marquee pauseOnHover={true} speed={10} gradient={false}>
 									<Image
