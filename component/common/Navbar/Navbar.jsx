@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, forwardRef } from "react";
 import cn from "classnames";
 import Link from 'next/link'
 import s from "./Navbar.module.css";
@@ -7,6 +7,17 @@ import Image from 'next/image'
 import { Menu } from '@headlessui/react'
 
 export default function Navbar() {
+
+  const CustomLink = forwardRef((props, ref) => {
+    let { href, children, ...rest } = props
+    return (
+      <Link href={href}>
+        <a ref={ref} {...rest} className={s.navButtonDrop}>
+          {children}
+        </a>
+      </Link>
+    )
+  })
 	const [haveMetamask, sethaveMetamask] = useState(true);
 
   const [client, setclient] = useState({
@@ -145,29 +156,30 @@ export default function Navbar() {
           </ul>
           <div className="d-inline-flex">
               <Menu>
-                {client.isConnected ? (
+                {({ open }) => (
                   <>
-                  <Menu.Button className={cn(s.navButton, "button")}>
-                      {client.address.slice(0, 4)}...
-                      {client.address.slice(38, 42)}
-                    </Menu.Button>
-                      <Menu.Items>
-                        <Menu.Item>
-                          {({ active }) => (
-                            <a
-                              className={cn(`${active && 'underline'}`, s.navDropLink)}
-                              onClick={disconnectWeb3}
-                            >
-                              Disconnect
-                            </a>
-                          )}
-                        </Menu.Item>
-                      </Menu.Items>
+                  {client.isConnected ? (
+                    <>
+                      <Menu.Button className={cn(s.navButton, "button", open ? 'open' : '' )}>
+                        {client.address.slice(0, 4)}...
+                        {client.address.slice(38, 42)}
+                      </Menu.Button>
+                        <Menu.Items className={s.navItems}>
+                          <Menu.Item className={s.navDropLink}>
+                            <CustomLink href="/fuse">Fuse</CustomLink>
+                          </Menu.Item>
+                          <Menu.Item className={s.navDropLink}>
+                            <CustomLink href="" onClick={disconnectWeb3}>Disconnect</CustomLink>
+                          </Menu.Item>
+                        </Menu.Items>
+                    </>
+                    ) : (
+                      <Menu.Button onClick={connectWeb3}>
+                        Connect Wallet
+                      </Menu.Button>
+                    )}
                   </>
-                  ) : (
-                    <Menu.Button onClick={connectWeb3}>
-                      Connect Wallet
-                    </Menu.Button>
+                    
                   )}
                   </Menu>
             </div>

@@ -5,6 +5,10 @@
   @apply px-6 py-2.5;
   border-radius: 20px;
 }
+.navButton.open {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
 .mainNav {
   @apply inline-flex flex-row justify-between items-center gap-x-8 text-lg;
   
@@ -16,10 +20,20 @@
 .navLink {
   @apply hover:cursor-pointer;
 }
-.navDropLink {
-  @apply absolute inline-flex px-8 py-1 border-2 mt-2 text-sm mx-auto justify-center;
-  border-radius: 20px;
+.navItems {
+  @apply absolute flex flex-col gap-y-1 mt-0;
+  background-color: rgb(234, 76, 76);
 }
+
+.navDropLink {
+  @apply hover:underline;
+}
+.navButtonDrop {
+  @apply inline-flex px-8 py-1 border-0 text-sm justify-center hover:underline;
+  border-radius: 20px;
+  border-color: #fff;
+}
+
 .navDropLink:hover {
   background-color: #fff;
   color: #ff5858;
