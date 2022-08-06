@@ -5,7 +5,7 @@ import Link from 'next/link'
 import s from "./Navbar.module.css";
 import HeaderLogo from "../../../public/img/logo.png";
 import Image from 'next/image'
-import { Menu } from '@headlessui/react'
+import { Menu, Transition } from '@headlessui/react'
 
 export default function Navbar() {
 
@@ -206,18 +206,29 @@ export default function Navbar() {
               <Menu>
                 {({ open }) => (
                 <>
-                  <Menu.Button className={cn(s.navButton, "button", open ? 'open' : '' )}>
+                  <Menu.Button className={cn(s.navButton, open ? 'open' : '' )}>
                     {client.address.slice(0, 4)}...
                     {client.address.slice(38, 42)}
                   </Menu.Button>
-                  <Menu.Items className={s.navItems}>
-                    <Menu.Item className={s.navDropLink}>
-                      <CustomLink href="/fuse">Fuse</CustomLink>
-                    </Menu.Item>
-                    <Menu.Item className={s.navDropLink}>
-                      <CustomLink href="" onClick={disconnectWeb3}>Disconnect</CustomLink>
-                    </Menu.Item>
-                  </Menu.Items>
+                  <Transition
+                    show={open}
+                    enter="transition ease-out duration-100"
+                    enterFrom="transform opacity-0 scale-95"
+                    enterTo="transform opacity-100 scale-100"
+                    leave="transition ease-in duration-75"
+                    leaveFrom="transform opacity-100 scale-100"
+                    leaveTo="transform opacity-0 scale-95"
+                  >
+                    <Menu.Items className={s.navItems}>
+                        <Menu.Item className={s.navDropLink}>
+                          <CustomLink href="/fuse">Fuse</CustomLink>
+                        </Menu.Item>
+                        <Menu.Item className={s.navDropLink}>
+                          <CustomLink href="" onClick={disconnectWeb3}>Disconnect</CustomLink>
+                        </Menu.Item>
+                      </Menu.Items>
+                  </Transition>
+                  
                 </>
                 )}
                 </Menu>
