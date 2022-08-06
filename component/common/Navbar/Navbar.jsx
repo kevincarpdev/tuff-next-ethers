@@ -9,16 +9,6 @@ import { Menu, Transition } from '@headlessui/react'
 
 export default function Navbar() {
 
-  const CustomLink = forwardRef((props, ref) => {
-    let { href, children, ...rest } = props
-    return (
-      <Link href={href}>
-        <a ref={ref} {...rest} className={s.navButtonDrop}>
-          {children}
-        </a>
-      </Link>
-    )
-  })
 	const [haveMetamask, sethaveMetamask] = useState(true);
 
   const [client, setclient] = useState({
@@ -221,13 +211,13 @@ export default function Navbar() {
                   >
                     <Menu.Items className={s.navItems}>
                       <Menu.Item className={s.navDropLink}>
-                          <CustomLink href="#">My Tuffs</CustomLink>
+                          <Link href="#">My Tuffs</Link>
                         </Menu.Item>
                         <Menu.Item className={s.navDropLink}>
-                          <CustomLink href="/fuse">Fuse</CustomLink>
+                          <Link href="/fuse">Fuse</Link>
                         </Menu.Item>
                         <Menu.Item className={s.navDropLink}>
-                          <CustomLink href="" onClick={disconnectWeb3}>Disconnect</CustomLink>
+                          <Link href="#" onClick={disconnectWeb3}>Disconnect</Link>
                         </Menu.Item>
                       </Menu.Items>
                   </Transition>

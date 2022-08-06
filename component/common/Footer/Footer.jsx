@@ -46,8 +46,6 @@ export default function Footer() {
 							<li>
 								<a
 									target={"_blank"}
-									whileHover={{ scale: 1.2 }}
-									whileTap={{ scale: 1.0 }}
 								>
 									OpenSea
 								</a>
