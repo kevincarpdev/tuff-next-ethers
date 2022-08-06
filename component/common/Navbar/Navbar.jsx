@@ -211,13 +211,13 @@ export default function Navbar() {
                   >
                     <Menu.Items className={s.navItems}>
                       <Menu.Item className={s.navDropLink}>
-                          <Link href="#">My Tuffs</Link>
+                          <Link href="#"><a className={s.navButtonDrop}>My Tuffs</a></Link>
                         </Menu.Item>
                         <Menu.Item className={s.navDropLink}>
-                          <Link href="/fuse">Fuse</Link>
+                          <Link href="/fuse"><a className={s.navButtonDrop}>Fuse</a></Link>
                         </Menu.Item>
                         <Menu.Item className={s.navDropLink}>
-                          <Link href="#" onClick={disconnectWeb3}>Disconnect</Link>
+                          <Link href="#" onClick={disconnectWeb3}><a className={s.navButtonDrop}>Disconnect</a></Link>
                         </Menu.Item>
                       </Menu.Items>
                   </Transition>
