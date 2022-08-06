@@ -1,5 +1,6 @@
 import React, { useState, useEffect, forwardRef } from "react";
 import cn from "classnames";
+import { ToastContainer, toast } from 'react-toastify';
 import Link from 'next/link'
 import s from "./Navbar.module.css";
 import HeaderLogo from "../../../public/img/logo.png";
@@ -56,7 +57,16 @@ export default function Navbar() {
       const { ethereum } = window;
 
       if (!ethereum) {
-        console.log("Metamask not detected");
+        console.log("");
+        toast.error("It looks like do not have MetaMask installed.", {
+          position: "top-right",
+          autoClose: false,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+        });
         return;
       }
 
@@ -68,8 +78,27 @@ export default function Navbar() {
         isConnected: true,
         address: accounts[0],
       });
+
+      toast.success("Connected to MetaMask", {
+        position: "top-right",
+        autoClose: true,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+      });
+
     } catch (error) {
-      console.log("Error connecting to metamask", error);
+      toast.error("Error connecting to metamask" + error, {
+        position: "top-right",
+        autoClose: false,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+      });
     }
   };
 
@@ -78,7 +107,15 @@ export default function Navbar() {
       const { ethereum } = window;
 
       if (!ethereum) {
-        console.log("Metamask not detected");
+        toast.error("It looks like do not have MetaMask installed.", {
+          position: "top-right",
+          autoClose: false,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+        });
         return;
       }
       setclient({
@@ -87,7 +124,15 @@ export default function Navbar() {
       });
       //window.location.reload();
     } catch (error) {
-      console.log("Error connecting to metamask", error);
+      toast.error("Error connecting to metamask" + error, {
+        position: "top-right",
+        autoClose: false,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+      });
     }
   };
 
@@ -115,6 +160,7 @@ export default function Navbar() {
 
 	return (
 		<>
+    <ToastContainer />
 				<nav className={cn(s.root, "container")}>
             <Link href="/" className={s.navLink}>
               <Image
@@ -155,33 +201,32 @@ export default function Navbar() {
             </li>
           </ul>
           <div className="d-inline-flex">
+            {client.isConnected ? (
+              <>
               <Menu>
                 {({ open }) => (
-                  <>
-                  {client.isConnected ? (
-                    <>
-                      <Menu.Button className={cn(s.navButton, "button", open ? 'open' : '' )}>
-                        {client.address.slice(0, 4)}...
-                        {client.address.slice(38, 42)}
-                      </Menu.Button>
-                        <Menu.Items className={s.navItems}>
-                          <Menu.Item className={s.navDropLink}>
-                            <CustomLink href="/fuse">Fuse</CustomLink>
-                          </Menu.Item>
-                          <Menu.Item className={s.navDropLink}>
-                            <CustomLink href="" onClick={disconnectWeb3}>Disconnect</CustomLink>
-                          </Menu.Item>
-                        </Menu.Items>
-                    </>
-                    ) : (
-                      <Menu.Button onClick={connectWeb3}>
-                        Connect Wallet
-                      </Menu.Button>
-                    )}
-                  </>
-                    
-                  )}
-                  </Menu>
+                <>
+                  <Menu.Button className={cn(s.navButton, "button", open ? 'open' : '' )}>
+                    {client.address.slice(0, 4)}...
+                    {client.address.slice(38, 42)}
+                  </Menu.Button>
+                  <Menu.Items className={s.navItems}>
+                    <Menu.Item className={s.navDropLink}>
+                      <CustomLink href="/fuse">Fuse</CustomLink>
+                    </Menu.Item>
+                    <Menu.Item className={s.navDropLink}>
+                      <CustomLink href="" onClick={disconnectWeb3}>Disconnect</CustomLink>
+                    </Menu.Item>
+                  </Menu.Items>
+                </>
+                )}
+                </Menu>
+              </>
+                ) : (
+                  <a className={cn(s.navButton, "button")} onClick={connectWeb3}>
+                    Connect Wallet
+                  </a>
+                )}
             </div>
         </nav>
 		</>
