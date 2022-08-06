@@ -162,7 +162,8 @@ export default function Navbar() {
 		<>
     <ToastContainer />
 				<nav className={cn(s.root, "container")}>
-            <Link href="/" className={s.navLink}>
+          <div className={s.navLink}>
+            <Link href="/">
               <Image
                 src={HeaderLogo}
                 alt={"Tuff Guys"}
@@ -173,6 +174,8 @@ export default function Navbar() {
                 height={80}
 						  />
             </Link>
+          </div>
+            
           <ul className={s.mainNav}>
               <li>
                 <a href="#about">
