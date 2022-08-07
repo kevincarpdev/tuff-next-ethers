@@ -41,7 +41,7 @@ export default function Navbar() {
 
       if (!ethereum) {
         console.log("");
-        toast.error("It looks like do not have MetaMask installed.", {
+        toast.error("It looks like you do not have MetaMask installed.", {
           position: "top-right",
           autoClose: false,
           hideProgressBar: false,
@@ -90,7 +90,7 @@ export default function Navbar() {
       const { ethereum } = window;
 
       if (!ethereum) {
-        toast.error("It looks like do not have MetaMask installed.", {
+        toast.error("It looks like you do not have MetaMask installed.", {
           position: "top-right",
           autoClose: false,
           hideProgressBar: false,
