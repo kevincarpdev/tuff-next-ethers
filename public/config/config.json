@@ -1,0 +1,18 @@
+{
+  "CONTRACT_ADDRESS": "0x080815aa469342134beea9c87758ed015c89a12d",
+  "SCAN_LINK": "https: //goerli.pixxiti.com/nfts/0x080815aa469342134beea9c87758ed015c89a12d",
+  "NETWORK": {
+    "NAME": "Goerli",
+    "SYMBOL": "ETH",
+    "ID": 5
+  },
+  "NFT_NAME": "Tuff Guy",
+  "SYMBOL": "TG",
+  "MAX_SUPPLY": 1000,
+  "WEI_COST": 75000000000000000,
+  "DISPLAY_COST": 0.075,
+  "GAS_LIMIT": 285000,
+  "MARKETPLACE": "Pixxiti",
+  "MARKETPLACE_LINK": "https: //goerli.pixxiti.com/nfts/0x080815aa469342134beea9c87758ed015c89a12d",
+  "SHOW_BACKGROUND": true
+}

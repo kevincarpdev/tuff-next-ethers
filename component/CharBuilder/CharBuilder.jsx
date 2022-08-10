@@ -1,14 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Image from 'next/image'
 import s from "./CharBuilder.module.css";
 import cn from "classnames";
-// import { useSnackbar } from "notistack";
-// import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
-
 import { Swiper, SwiperSlide } from "swiper/react";
-// import "swiper/swiper-bundle.min.css";
-// import "swiper/swiper.min.css";
-
+import { useDispatch, useSelector } from "react-redux";
+import { connect } from "../../redux/blockchain/blockchainActions";
+import { fetchData } from "../../redux/data/dataActions";
 import Background from "../../public/img/traits/Backgrounds/Blue Doodles.png";
 import Skin from "../../public/img/traits/Colors/Blue Skin.png";
 import Head from "../../public/img/traits/Colors/Default Head.png";
@@ -21,10 +18,17 @@ import { FaQuestion } from "react-icons/fa";
 import {motion, useMotionValue, useTransform } from "framer-motion";
 import 'swiper/css';
 
+const truncate = (input, len) =>
+  input.length > len ? `${input.substring(0, len)}...` : input;
+
+
 export default function CharBuilder({mintCharacter}) {
-	// const { Moralis } = useMoralis();
-	// const { user, setUserData, loading } = props;
-	// const [NFTs, setNFTs] = useState([]);
+	const dispatch = useDispatch();
+  const blockchain = useSelector((state) => state.blockchain);
+  const data = useSelector((state) => state.data);
+  const [claimingNft, setClaimingNft] = useState(false);
+  const [feedback, setFeedback] = useState(`Click buy to mint your NFT.`);
+  const [mintAmount, setMintAmount] = useState(1);
 
 	function next(item) {
 		const next_num = dressupState[item].current + 1;
@@ -61,8 +65,100 @@ export default function CharBuilder({mintCharacter}) {
 		Tears: { current: 0, total: 13 },
 	});
 
-
 	const x = useMotionValue(0)
+
+  const [CONFIG, SET_CONFIG] = useState({
+    CONTRACT_ADDRESS: "",
+    SCAN_LINK: "",
+    NETWORK: {
+      NAME: "",
+      SYMBOL: "",
+      ID: 0,
+    },
+    NFT_NAME: "",
+    SYMBOL: "",
+    MAX_SUPPLY: 1,
+    WEI_COST: 0,
+    DISPLAY_COST: 0,
+    GAS_LIMIT: 0,
+    MARKETPLACE: "",
+    MARKETPLACE_LINK: "",
+    SHOW_BACKGROUND: false,
+  });
+
+  const claimNFTs = () => {
+    let cost = CONFIG.WEI_COST;
+    let gasLimit = CONFIG.GAS_LIMIT;
+    let totalCostWei = String(cost * mintAmount);
+    let totalGasLimit = String(gasLimit * mintAmount);
+    console.log("Cost: ", totalCostWei);
+    console.log("Gas limit: ", totalGasLimit);
+    setFeedback(`Fusing your ${CONFIG.NFT_NAME}...`);
+    setClaimingNft(true);
+    blockchain.smartContract.methods
+      .mint(blockchain.account, mintAmount)
+      .send({
+        gasLimit: String(totalGasLimit),
+        to: CONFIG.CONTRACT_ADDRESS,
+        from: blockchain.account,
+        value: totalCostWei,
+      })
+      .once("error", (err) => {
+        console.log(err);
+        setFeedback("Sorry, something went wrong please try again later.");
+        setClaimingNft(false);
+      })
+      .then((receipt) => {
+        console.log(receipt);
+        setFeedback(
+          `WOW, the ${CONFIG.NFT_NAME} is yours! go visit Opensea.io to view it.`
+        );
+        setClaimingNft(false);
+        dispatch(fetchData(blockchain.account));
+      });
+  };
+
+  const decrementMintAmount = () => {
+    let newMintAmount = mintAmount - 1;
+    if (newMintAmount < 1) {
+      newMintAmount = 1;
+    }
+    setMintAmount(newMintAmount);
+  };
+
+  const incrementMintAmount = () => {
+    let newMintAmount = mintAmount + 1;
+    if (newMintAmount > 10) {
+      newMintAmount = 10;
+    }
+    setMintAmount(newMintAmount);
+  };
+
+  const getData = () => {
+    if (blockchain.account !== "" && blockchain.smartContract !== null) {
+      dispatch(fetchData(blockchain.account));
+    }
+  };
+
+  const getConfig = async () => {
+    const configResponse = await fetch("/config/config.json", {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    });
+    const config = await configResponse.json();
+    SET_CONFIG(config);
+  };
+
+  useEffect(() => {
+    getConfig();
+  }, []);
+
+  useEffect(() => {
+    getData();
+  }, [blockchain.account]);
+
 	return (
 		<>
 			<section id="builder" className={cn(s.root)}>
@@ -106,24 +202,7 @@ export default function CharBuilder({mintCharacter}) {
 											<FaQuestion size={70} />
 										</motion.a>
 									</SwiperSlide>
-									<SwiperSlide key="NFT3">
-										<motion.a
-											whileHover={{ scale: 1.2 }}
-											whileTap={{ scale: 1.0 }}
-											className={s.nftItem}
-										>
-											<FaQuestion size={70} />
-										</motion.a>
-									</SwiperSlide>
-									<SwiperSlide key="NFT4">
-										<motion.a
-											whileHover={{ scale: 1.2 }}
-											whileTap={{ scale: 1.0 }}
-											className={s.nftItem}
-										>
-											<FaQuestion size={70} />
-										</motion.a>
-									</SwiperSlide>
+									
 								</Swiper>
 							</div>
 						</div>
@@ -238,7 +317,110 @@ export default function CharBuilder({mintCharacter}) {
 												</div>
 											</div>
 										))}
+										<>
+										<div
+											style={{ textAlign: "center", color: "var(--accent-text)" }}
+										>
+											1 {CONFIG.SYMBOL} costs {CONFIG.DISPLAY_COST}{" "}
+											{CONFIG.NETWORK.SYMBOL}.
+										</div>
+										<span
+											style={{ textAlign: "center", color: "var(--accent-text)" }}
+										>
+											Excluding gas fees.
+										</span>
+										{blockchain.account === "" ||
+										blockchain.smartContract === null ? (
+											<div>
+												<span
+													style={{
+														textAlign: "center",
+														color: "var(--accent-text)",
+													}}
+												>
+													Connect to the {CONFIG.NETWORK.NAME} network
+												</span>
+												<button
+													onClick={(e) => {
+														e.preventDefault();
+														dispatch(connect());
+														getData();
+													}}
+												>
+													CONNECT
+												</button>
+												{blockchain.errorMsg !== "" ? (
+													<>
+														<span
+															style={{
+																textAlign: "center",
+																color: "var(--accent-text)",
+															}}
+														>
+															{blockchain.errorMsg}
+														</span>
+													</>
+												) : null}
+											</div>
+										) : (
+											<>
+												<div
+													style={{
+														textAlign: "center",
+														color: "var(--accent-text)",
+													}}
+												>
+													{feedback}
+												</div>
+												<div>
+													<button
+														style={{ lineHeight: 0.4 }}
+														disabled={claimingNft ? 1 : 0}
+														onClick={(e) => {
+															e.preventDefault();
+															decrementMintAmount();
+														}}
+													>
+														-
+													</button>
+													<div
+														style={{
+															textAlign: "center",
+															color: "var(--accent-text)",
+														}}
+													>
+														{mintAmount}
+													</div>
+													<button
+														disabled={claimingNft ? 1 : 0}
+														onClick={(e) => {
+															e.preventDefault();
+															incrementMintAmount();
+														}}
+													>
+														+
+													</button>
+												</div>
+												<div>
+													<button
+														disabled={claimingNft ? 1 : 0}
+														onClick={(e) => {
+															e.preventDefault();
+															claimNFTs();
+															getData();
+														}}
+													>
+														{claimingNft ? "FUSING" : "FUSE"}
+													</button>
+												</div>
+											</>
+										)}
+              	</>
 									</div>
+									{/* <button className={s.mintButton} onClick={() => this.saveDressup()}>
+										Mint
+									</button> */}
+									
 								</div>
 								</div>
 							</div>
