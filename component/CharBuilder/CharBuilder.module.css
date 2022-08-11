@@ -137,7 +137,12 @@
 .traitHeader {
 	@apply text-xl mb-2;
 }
-
+.mintContainer {
+	@apply flex flex-col justify-center place-content-center max-w-screen-sm  mx-auto;
+}
+.mintBtn {
+	@apply w-full mt-1;
+}
 
 @media screen and (min-width: 640px) {
   .swiper-container {

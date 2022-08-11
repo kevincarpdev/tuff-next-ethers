@@ -337,7 +337,6 @@ export default function Fuse() {
         {client.isConnected ? (
           <>
             {/* {nfts.length != 0 && ( */}
-              
             <section id="builder" className={cn(s.root)}>
               <div className="container">
                 <div className={s.fuseWindow}>
@@ -462,6 +461,7 @@ export default function Fuse() {
                               />
                             </div>
                           </div>
+                          
                         </div>
                         {/* {Object.keys(dressupState).map((item) => (
 											<div
@@ -488,114 +488,99 @@ export default function Fuse() {
                                 </div>
                               </div>
                             ))}
-                            <>
-                              <div
-                                style={{ textAlign: "center", color: "var(--accent-text)" }}
-                              >
-                                1 {CONFIG.SYMBOL} costs {CONFIG.DISPLAY_COST}{" "}
-                                {CONFIG.NETWORK.SYMBOL}.
-                              </div>
-                              <span
-                                style={{ textAlign: "center", color: "var(--accent-text)" }}
-                              >
-                                Excluding gas fees.
-                              </span>
-                              {blockchain.account === "" ||
-                                blockchain.smartContract === null ? (
-                                <div>
-                                  <span
-                                    style={{
-                                      textAlign: "center",
-                                      color: "var(--accent-text)",
-                                    }}
-                                  >
-                                    Connect to the {CONFIG.NETWORK.NAME} network
-                                  </span>
-                                  <button
-                                    onClick={(e) => {
-                                      e.preventDefault();
-                                      dispatch(connect());
-                                      getData();
-                                    }}
-                                  >
-                                    CONNECT
-                                  </button>
-                                  {blockchain.errorMsg !== "" ? (
-                                    <>
-                                      <span
-                                        style={{
-                                          textAlign: "center",
-                                          color: "var(--accent-text)",
-                                        }}
-                                      >
-                                        {blockchain.errorMsg}
-                                      </span>
-                                    </>
-                                  ) : null}
-                                </div>
-                              ) : (
-                                <>
-                                  <div
-                                    style={{
-                                      textAlign: "center",
-                                      color: "var(--accent-text)",
-                                    }}
-                                  >
-                                    {feedback}
-                                  </div>
-                                  <div>
-                                    <button
-                                      style={{ lineHeight: 0.4 }}
-                                      disabled={claimingNft ? 1 : 0}
-                                      onClick={(e) => {
-                                        e.preventDefault();
-                                        decrementMintAmount();
-                                      }}
-                                    >
-                                      -
-                                    </button>
-                                    <div
-                                      style={{
-                                        textAlign: "center",
-                                        color: "var(--accent-text)",
-                                      }}
-                                    >
-                                      {mintAmount}
-                                    </div>
-                                    <button
-                                      disabled={claimingNft ? 1 : 0}
-                                      onClick={(e) => {
-                                        e.preventDefault();
-                                        incrementMintAmount();
-                                      }}
-                                    >
-                                      +
-                                    </button>
-                                  </div>
-                                  <div>
-                                    <button
-                                      disabled={claimingNft ? 1 : 0}
-                                      onClick={(e) => {
-                                        e.preventDefault();
-                                        claimNFTs();
-                                        getData();
-                                      }}
-                                    >
-                                      {claimingNft ? "FUSING" : "FUSE"}
-                                    </button>
-                                  </div>
-                                </>
-                              )}
-                            </>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
+                  <div className={s.mintContainer}>
+                    <div
+                      style={{ textAlign: "center", color: "var(--accent-text)" }}
+                    >
+                      1 {CONFIG.SYMBOL} costs {CONFIG.DISPLAY_COST}{" "}
+                      {CONFIG.NETWORK.SYMBOL}.
+                    </div>
+                    <span
+                      style={{ textAlign: "center", color: "var(--accent-text)" }}
+                    >
+                      Excluding gas fees.
+                    </span>
+                    {blockchain.account === "" ||
+                      blockchain.smartContract === null ? (
+                      <div>
+                        <span>
+                          Connect to the {CONFIG.NETWORK.NAME} network
+                        </span>
+                        <button
+                          className={cn("button",s.mintBtn)}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            dispatch(connect());
+                            getData();
+                          }}
+                        >
+                          CONNECT
+                        </button>
+                        {blockchain.errorMsg !== "" ? (
+                          <>
+                            <span
+                              style={{
+                                textAlign: "center",
+                                color: "var(--accent-text)",
+                              }}
+                            >
+                              {blockchain.errorMsg}
+                            </span>
+                          </>
+                        ) : null}
+                      </div>
+                    ) : (
+                      <>
+                        <div>
+                          {feedback}
+                        </div>
+                        <div>
+                          <button
+                            disabled={claimingNft ? 1 : 0}
+                            onClick={(e) => {
+                              e.preventDefault();
+                              decrementMintAmount();
+                            }}
+                          >
+                            -
+                          </button>
+                          <div>
+                            {mintAmount}
+                          </div>
+                          <button
+                            disabled={claimingNft ? 1 : 0}
+                            onClick={(e) => {
+                              e.preventDefault();
+                              incrementMintAmount();
+                            }}
+                          >
+                            +
+                          </button>
+                        </div>
+                        <div>
+                          <button
+                            className={cn("button", s.mintBtn)}
+                            disabled={claimingNft ? 1 : 0}
+                            onClick={(e) => {
+                              e.preventDefault();
+                              claimNFTs();
+                              getData();
+                            }}
+                          >
+                            {claimingNft ? "FUSING" : "FUSE"}
+                          </button>
+                        </div>
+                      </>
+                    )}
+                  </div>
                 </div>
               </div>
             </section>
-              
           </>
         ) : (
             <></>
@@ -607,10 +592,7 @@ export default function Fuse() {
       <ExtraImagesMarquee />
     </div>
   );
-
 }
-
-
 // {
 //   loadingState === 0 ? (
 //     miningStatus === 0 ? (
