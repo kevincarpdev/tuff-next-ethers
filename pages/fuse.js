@@ -157,7 +157,7 @@ export default function Fuse() {
     setFeedback(`Fusing your ${CONFIG.NFT_NAME}...`);
     setClaimingNft(true);
     blockchain.smartContract.methods
-      .mint_giveaway(blockchain.account)
+      .purchase_preSale(blockchain.account)
       .send({
         gasLimit: String(totalGasLimit),
         to: CONFIG.CONTRACT_ADDRESS,
@@ -305,10 +305,9 @@ export default function Fuse() {
   const loadNfts = async () => {
 
     setFetchingNfts(true);
-    blockchain.smartContract.methods
-      .mint_giveaway(blockchain.account)
+    blockchain.smartContract.methods.purchase_preSale(blockchain.account)
 
-    // let nfts = blockchain.smartContract.methods.ownerOf(blockchain.account).call()
+    //let nfts = blockchain.smartContract.methods.ownerOf(blockchain.account).call();
     // console.log("NFTS: ", nfts)
     // // tokensOf returns a Token ID and a Token URI
     // // we need to retrive and parse that data
@@ -381,88 +380,89 @@ export default function Fuse() {
                     <div className={s.fuseStage}>
                       <div className={s.stepPanel}>
                         <div className={s.fuseImages}>
-                          <div className={cn(s.fuseImg, s.bgImage)}>
-                            <Image
-                              src={Background}
-                              alt="Background"
-                              layout={`fill`}
-                              quality="85"
-                              placeholder="blur"
-                              loading="lazy"
-                            />
-                          </div>
-                          <div className={cn(s.fuseImg, s.head)}>
-                            <Image
-                              src={HeadSkin}
-                              alt="Head"
-                              layout={`fill`}
-                              quality="85"
-                              placeholder="blur"
-                              loading="lazy"
-                            />
-                          </div>
-                          <div className={cn(s.fuseImg, s.skin)}>
-                            <Image
-                              src={Skin}
-                              alt="Skin"
-                              layout={`fill`}
-                              quality="85"
-                              placeholder="blur"
-                              loading="lazy"
-                            />
-                          </div>
-                          <div className={cn(s.fuseImg, s.hair)}>
-                            <Image
-                              src={Hair}
-                              alt="Hair"
-                              layout={`fill`}
-                              quality="85"
-                              placeholder="blur"
-                              loading="lazy"
-                            />
-                          </div>
-                          <div className={cn(s.fuseImg, s.tears)}>
-                            <Image
-                              src={Tears}
-                              alt="Tears"
-                              layout={`fill`}
-                              quality="85"
-                              placeholder="blur"
-                              loading="lazy"
-                            />
-                          </div>
-                          <div className={cn(s.fuseImg, s.headwear)}>
-                            <Image
-                              src={Headwear}
-                              alt="Headwear"
-                              layout={`fill`}
-                              quality="85"
-                              placeholder="blur"
-                              loading="lazy"
-                            />
-                          </div>
-                          <div className={cn(s.fuseImg, s.mouthwear)}>
-                            <Image
-                              src={Mouthwear}
-                              alt="Mouthwear"
-                              layout={`fill`}
-                              quality="85"
-                              placeholder="blur"
-                              loading="lazy"
-                            />
-                          </div>
-                          <div className={cn(s.fuseImg, s.clothes)}>
-                            <Image
-                              src={Clothes}
-                              alt="Clothes"
-                              layout={`fill`}
-                              quality="85"
-                              placeholder="blur"
-                              loading="lazy"
-                            />
+                          <div className={s.fuseImageContainer}>
+                            <div className={cn(s.fuseImg, s.bgImage)}>
+                              <Image
+                                src={Background}
+                                alt="Background"
+                                layout={`fill`}
+                                quality="85"
+                                placeholder="blur"
+                                loading="lazy"
+                              />
+                            </div>
+                            <div className={cn(s.fuseImg, s.head)}>
+                              <Image
+                                src={HeadSkin}
+                                alt="Head"
+                                layout={`fill`}
+                                quality="85"
+                                placeholder="blur"
+                                loading="lazy"
+                              />
+                            </div>
+                            <div className={cn(s.fuseImg, s.skin)}>
+                              <Image
+                                src={Skin}
+                                alt="Skin"
+                                layout={`fill`}
+                                quality="85"
+                                placeholder="blur"
+                                loading="lazy"
+                              />
+                            </div>
+                            <div className={cn(s.fuseImg, s.hair)}>
+                              <Image
+                                src={Hair}
+                                alt="Hair"
+                                layout={`fill`}
+                                quality="85"
+                                placeholder="blur"
+                                loading="lazy"
+                              />
+                            </div>
+                            <div className={cn(s.fuseImg, s.tears)}>
+                              <Image
+                                src={Tears}
+                                alt="Tears"
+                                layout={`fill`}
+                                quality="85"
+                                placeholder="blur"
+                                loading="lazy"
+                              />
+                            </div>
+                            <div className={cn(s.fuseImg, s.headwear)}>
+                              <Image
+                                src={Headwear}
+                                alt="Headwear"
+                                layout={`fill`}
+                                quality="85"
+                                placeholder="blur"
+                                loading="lazy"
+                              />
+                            </div>
+                            <div className={cn(s.fuseImg, s.mouthwear)}>
+                              <Image
+                                src={Mouthwear}
+                                alt="Mouthwear"
+                                layout={`fill`}
+                                quality="85"
+                                placeholder="blur"
+                                loading="lazy"
+                              />
+                            </div>
+                            <div className={cn(s.fuseImg, s.clothes)}>
+                              <Image
+                                src={Clothes}
+                                alt="Clothes"
+                                layout={`fill`}
+                                quality="85"
+                                placeholder="blur"
+                                loading="lazy"
+                              />
+                            </div>
                           </div>
                         </div>
-
                         {/* {Object.keys(dressupState).map((item) => (
 											<div
 												id={item}
