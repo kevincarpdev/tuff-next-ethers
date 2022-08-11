@@ -4,9 +4,8 @@
 }
 
 .stepPanel {
-	@apply relative md:flex justify-between flex-col md:flex-row;
+	@apply relative md:flex justify-between flex-col md:flex-row;;
 	border-radius: 40px;
-	padding: 4em 2em 0 0;
 	text-align: center;
 	height: auto;
 	margin: 0 auto;
@@ -40,7 +39,7 @@
 	pointer-events: none;
 }
 .controls {
-	@apply relative w-full md:w-4/12 inline-flex gap-y-2 text-center justify-center py-12;
+	@apply relative w-full md:w-4/12 inline-flex md:gap-y-2 text-center justify-center py-12;
 	z-index: 3;
 	color: #fff;
 }
