@@ -143,6 +143,15 @@
 .mintBtn {
 	@apply w-full mt-1;
 }
+.mintQtyContainer {
+	@apply flex flex-row mx-auto justify-center place-content-center gap-x-2 my-2;
+}
+.buttonQty {
+	@apply py-0 px-2;
+}
+.mintAmount {
+	@apply text-xl;
+}
 
 @media screen and (min-width: 640px) {
   .swiper-container {

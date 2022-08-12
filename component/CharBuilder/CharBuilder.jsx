@@ -166,7 +166,7 @@ export default function CharBuilder({mintCharacter}) {
 					<div className={s.fuseWindow}>
 						<div className={s.nftPanel}>
 							<h2 className={s.nftRowHeader}>My Tuff Guys</h2>
-							<div >
+							<div>
 								<Swiper
 								breakpoints={{
 									640: {
@@ -176,10 +176,6 @@ export default function CharBuilder({mintCharacter}) {
 									768: {
 										width: 768,
 										slidesPerView: 2,
-									},
-									1024: {
-										width: 1024,
-										slidesPerView: 4,
 									},
 								}}
 								className={s.nftRow}
@@ -202,7 +198,6 @@ export default function CharBuilder({mintCharacter}) {
 											<FaQuestion size={70} />
 										</motion.a>
 									</SwiperSlide>
-									
 								</Swiper>
 							</div>
 						</div>

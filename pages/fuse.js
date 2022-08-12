@@ -539,8 +539,9 @@ export default function Fuse() {
                         <div>
                           {feedback}
                         </div>
-                        <div>
+                        <div className={s.mintQtyContainer}>
                           <button
+                            className={cn("button", s.buttonQty)}
                             disabled={claimingNft ? 1 : 0}
                             onClick={(e) => {
                               e.preventDefault();
@@ -549,10 +550,11 @@ export default function Fuse() {
                           >
                             -
                           </button>
-                          <div>
+                          <div className={s.mintAmount}>
                             {mintAmount}
                           </div>
                           <button
+                            className={cn("button", s.buttonQty)}
                             disabled={claimingNft ? 1 : 0}
                             onClick={(e) => {
                               e.preventDefault();
